@@ -323,6 +323,11 @@
               aria-selected="true">Main Result</button>
           </li>
           <li class="nav-item" role="presentation">
+            <button class="nav-link" id="human-table-tab" data-bs-toggle="tab"
+              data-bs-target="#human-table-content" type="button" role="tab" aria-controls="human-table-tab"
+              aria-selected="false">Human-Eval</button>
+          </li>
+          <li class="nav-item" role="presentation">
             <button class="nav-link" id="alignment-table-tab" data-bs-toggle="tab"
               data-bs-target="#alignment-table-content" type="button" role="tab" aria-controls="alignment-table-tab"
               aria-selected="false">Alignment</button>
@@ -353,6 +358,15 @@
             </p>
 
             <div id="benchmark-table"></div>
+          </div>
+          <div class="tab-pane fade" id="human-table-content" role="tabpanel"
+            aria-labelledby="human-table-content">
+
+            <p class="mt-2 px-2">
+              Human evaluation result on the generated images from six fine-tuned SD-v1.5 model using the feedback from six multimodal judges, i.e. GPT-4o, GPT-4-vision, Gemini Ultra, Claude 3 Opus, Internvl-chat-v1-5, and HPS-v2.1. Specifically, we consider the following four metrics: ranking over fixed seed (<b>FR</b>), ranking over random seed (<b>RR</b>), average ranking (<b>AR</b>), and average voting (<b>AV</b>).
+             </p>
+            <div id="human-table"></div>
+          </div>
           </div>
           <div class="tab-pane fade" id="alignment-table-content" role="tabpanel"
             aria-labelledby="alignment-table-content">

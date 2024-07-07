@@ -104,6 +104,7 @@ var barColorFn = function (value, formatterParams) {
 document.addEventListener('DOMContentLoaded', function () {
     Promise.all([
         fetch('static/data/benchmark.json').then(response => response.json()),
+        fetch('static/data/human_eval.json').then(response => response.json()),
         fetch('static/data/alignment.json').then(response => response.json()),
         fetch('static/data/safety.json').then(response => response.json()),
         fetch('static/data/quality.json').then(response => response.json()),
@@ -111,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
     ])
         .then(([
             benchmark_tabledata,
+            human_tabledata,
             alignment_tabledata,
             safety_tabledata,
             quality_tabledata,
@@ -175,6 +177,56 @@ document.addEventListener('DOMContentLoaded', function () {
                 ],
             });
 
+            var human_eval_table = new Tabulator("#human-table", {
+                data: human_tabledata,
+                layout: "fitColumns",
+                responsiveLayout: "collapse",
+                movableColumns: false,
+                columnDefaults: {
+                    tooltip: true,
+                },
+                columns: [
+                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
+                    {
+                        title: "Alignment",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "FR", field: "Alignment_FR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "RR", field: "Alignment_RR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "AR", field: "Alignment_AR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "AV", field: "Alignment_AV", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
+                        ]
+                    },
+                    {
+                        title: "Safety",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "FR", field: "Safety_FR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "RR", field: "Safety_RR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "AR", field: "Safety_AR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "AV", field: "Safety_AV", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
+                        ]
+                    },
+                    {
+                        title: "Bias",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "FR", field: "Bias_FR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "RR", field: "Bias_RR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "AR", field: "Bias_AR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "AV", field: "Bias_AV", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
+                        ]
+                    }
+                ],
+                initialSort: [
+                    { column: "Alignment_AR", dir: "asc" },
+                    { column: "Safety_AR", dir: "asc" },
+                    { column: "Bias_AR", dir: "asc" }
+                ],
+            });
 
             var alignment_table = new Tabulator("#alignment-table", {
                 data: alignment_tabledata,
