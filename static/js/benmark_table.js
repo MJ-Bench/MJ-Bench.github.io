@@ -177,6 +177,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 ],
             });
 
+            // 2. Human Evaluation Table
+            human_tabledata.forEach(row => {
+                row.line = [row['1'], row['2'], row['3'], row['4'], row['5'], row['6']]
+            })
+
             var human_eval_table = new Tabulator("#human-table", {
                 data: human_tabledata,
                 layout: "fitColumns",
@@ -228,6 +233,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 ],
             });
 
+            // 3. Alignment Table
+            alignment_tabledata.forEach(row => {
+                row.line = [row['1'], row['2'], row['3'], row['4'], row['5'], row['6']]
+            })
+
             var alignment_table = new Tabulator("#alignment-table", {
                 data: alignment_tabledata,
                 layout: "fitColumns",
@@ -249,6 +259,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     { column: "Avg", dir: "desc" },
                 ],
             });
+
+            // 4. Safety Table
+            safety_tabledata.forEach(row => {
+                row.line = [row['1'], row['2'], row['3'], row['4'], row['5'], row['6']]
+            })
 
             var safety_table = new Tabulator("#safety-table", {
                 data: safety_tabledata,
@@ -289,6 +304,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 ],
             });
 
+            // 5. Quality Table
+            quality_tabledata.forEach(row => {
+                row.line = [row['1'], row['2'], row['3'], row['4'], row['5'], row['6']]
+            })
+
             var quality_table = new Tabulator("#quality-table", {
                 data: quality_tabledata,
                 layout: "fitColumns",
@@ -326,6 +346,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     { column: "Avg", dir: "desc" },
                 ],
             });
+
+            // 6. Bias Table
+            bias_tabledata.forEach(row => {
+                row.line = [row['1'], row['2'], row['3'], row['4'], row['5'], row['6']]
+            })
 
             var bias_table = new Tabulator("#bias-table", {
                 data: bias_tabledata,
