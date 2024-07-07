@@ -310,110 +310,78 @@
 
   <section class="hero teaser">
     <div class="container is-max-desktop">
-      <div class="hero-body">
-
-
-
-        <h2 class="title is-3">Leaderboard</h2>
-        We compare over 22 multimodal judges on <b>MJ-Bench</b> dataset. The leaderboard is updated daily to reflect the latest performance of each model. The leaderboard is based on the average accuracy (%) with and without ties for alignment, safety, and artifact. We evaluate preference biases over three metrics, i.e. accuracy (ACC), normalized dispersion score (NDS), Gini-based equality score (GES).
-
-        <br>
-        <br>
-
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="main-results-tab" data-bs-toggle="tab"
-              data-bs-target="#benchmark-table-content" type="button" role="tab" aria-controls="main-results-tab"
-              aria-selected="true">Main Result</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="human-table-tab" data-bs-toggle="tab"
-              data-bs-target="#human-table-content" type="button" role="tab" aria-controls="human-table-tab"
-              aria-selected="false">Human-Eval</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="alignment-table-tab" data-bs-toggle="tab"
-              data-bs-target="#alignment-table-content" type="button" role="tab" aria-controls="alignment-table-tab"
-              aria-selected="false">Alignment</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="safety-table-tab" data-bs-toggle="tab"
-              data-bs-target="#safety-table-content" type="button" role="tab" aria-controls="safety-table-tab"
-              aria-selected="false">Safety</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="quality-table-tab" data-bs-toggle="tab"
-              data-bs-target="#quality-table-content" type="button" role="tab" aria-controls="quality-table-tab"
-              aria-selected="false">Quality</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="bias-table-tab" data-bs-toggle="tab"
-              data-bs-target="#bias-table-content" type="button" role="tab" aria-controls="bias-table-tab"
-              aria-selected="false">Bias</button>
-          </li>
-        </ul>
-
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="benchmark-table-content" role="tabpanel"
-            aria-labelledby="benchmark-table-content">
-
-            <p class="mt-2 px-2">
-              Evaluation of three types of multimodal judges across four perspectives on <b>MJ-Bench</b> dataset. The average accuracy (%) with and without ties is provided for alignment, safety, and artifact. We evaluate preference biases over three metrics, i.e. accuracy (ACC), normalized dispersion score (NDS), Gini-based equality score (GES).
+        <div class="hero-body">
+            <h2 class="title is-3">Leaderboard</h2>
+            <p>
+                We compare over 22 multimodal judges on <b>MJ-Bench</b> dataset. The leaderboard is updated daily to reflect the latest performance of each model. The leaderboard is based on the average accuracy (%) with and without ties for alignment, safety, and artifact. We evaluate preference biases over three metrics, i.e. accuracy (ACC), normalized dispersion score (NDS), Gini-based equality score (GES).
             </p>
+            <br>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="main-results-tab" data-bs-toggle="tab" data-bs-target="#benchmark-table-content" type="button" role="tab" aria-controls="benchmark-table-content" aria-selected="true">Main Result</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="human-table-tab" data-bs-toggle="tab" data-bs-target="#human-table-content" type="button" role="tab" aria-controls="human-table-content" aria-selected="false">Human-Eval</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="alignment-table-tab" data-bs-toggle="tab" data-bs-target="#alignment-table-content" type="button" role="tab" aria-controls="alignment-table-content" aria-selected="false">Alignment</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="safety-table-tab" data-bs-toggle="tab" data-bs-target="#safety-table-content" type="button" role="tab" aria-controls="safety-table-content" aria-selected="false">Safety</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="quality-table-tab" data-bs-toggle="tab" data-bs-target="#quality-table-content" type="button" role="tab" aria-controls="quality-table-content" aria-selected="false">Quality</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="bias-table-tab" data-bs-toggle="tab" data-bs-target="#bias-table-content" type="button" role="tab" aria-controls="bias-table-content" aria-selected="false">Bias</button>
+                </li>
+            </ul>
 
-            <div id="benchmark-table"></div>
-          </div>
-          <div class="tab-pane fade" id="human-table-content" role="tabpanel"
-            aria-labelledby="human-table-content">
-
-            <p class="mt-2 px-2">
-              Human evaluation result on the generated images from six fine-tuned SD-v1.5 model using the feedback from six multimodal judges, i.e. GPT-4o, GPT-4-vision, Gemini Ultra, Claude 3 Opus, Internvl-chat-v1-5, and HPS-v2.1. Specifically, we consider the following four metrics: ranking over fixed seed (<b>FR</b>), ranking over random seed (<b>RR</b>), average ranking (<b>AR</b>), and average voting (<b>AV</b>).
-             </p>
-            <div id="human-table"></div>
-          </div>
-          </div>
-          <div class="tab-pane fade" id="alignment-table-content" role="tabpanel"
-            aria-labelledby="alignment-table-content">
-
-            <p class="mt-2 px-2">
-              The detailed evaluation result of all multimodal judges on <b>alignment</b> perspective. The feedback are provided in numerical scale of range [0, 10]. Specifically, we study their individual performance over five alignment objectives: object (existence), attribute, action, location, and count.
-            </p>
-            <div id="alignment-table"></div>
-          </div>
-          <div class="tab-pane fade" id="safety-table-content" role="tabpanel"
-            aria-labelledby="safety-table-content">
-
-            <p class="mt-2 px-2">
-              The detailed evaluation result of all multimodal judges on <b>safety</b> perspective. The feedback are provided in numerical scale of range [0, 10]. Specifically, we study their individual performance over two safety objectives: toxicity (crime, shocking, and disgust) and NSFW (evident, evasive, and subtle).
-            </p>
-            <div id="safety-table"></div>
-          </div>
-          <div class="tab-pane fade" id="quality-table-content" role="tabpanel"
-            aria-labelledby="quality-table-content">
-
-            <p class="mt-2 px-2">
-              The detailed evaluation result of all multimodal judges on <b>quality</b> perspective. The feedback is provided in numerical scale of range [0, 10]. Specifically, we study their individual performance over two quality objectives: distortion (including human face, human limb, and object), and blurry (including defocused and motion).
-            </p>
-            <div id="quality-table"></div>
-          </div>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="benchmark-table-content" role="tabpanel" aria-labelledby="main-results-tab">
+                    <p class="mt-2 px-2">
+                        Evaluation of three types of multimodal judges across four perspectives on <b>MJ-Bench</b> dataset. The average accuracy (%) with and without ties is provided for alignment, safety, and artifact. We evaluate preference biases over three metrics, i.e. accuracy (ACC), normalized dispersion score (NDS), Gini-based equality score (GES).
+                    </p>
+                    <div id="benchmark-table"></div>
+                </div>
+                <div class="tab-pane fade" id="human-table-content" role="tabpanel" aria-labelledby="human-table-tab">
+                    <p class="mt-2 px-2">
+                        Human evaluation result on the generated images from six fine-tuned SD-v1.5 model using the feedback from six multimodal judges, i.e. GPT-4o, GPT-4-vision, Gemini Ultra, Claude 3 Opus, Internvl-chat-v1-5, and HPS-v2.1. Specifically, we consider the following four metrics: ranking over fixed seed (<b>FR</b>), ranking over random seed (<b>RR</b>), average ranking (<b>AR</b>), and average voting (<b>AV</b>).
+                    </p>
+                    <div id="human-table"></div>
+                </div>
+                <div class="tab-pane fade" id="alignment-table-content" role="tabpanel" aria-labelledby="alignment-table-tab">
+                    <p class="mt-2 px-2">
+                        The detailed evaluation result of all multimodal judges on <b>alignment</b> perspective. The feedback are provided in numerical scale of range [0, 10]. Specifically, we study their individual performance over five alignment objectives: object (existence), attribute, action, location, and count.
+                    </p>
+                    <div id="alignment-table"></div>
+                </div>
+                <div class="tab-pane fade" id="safety-table-content" role="tabpanel" aria-labelledby="safety-table-tab">
+                    <p class="mt-2 px-2">
+                        The detailed evaluation result of all multimodal judges on <b>safety</b> perspective. The feedback are provided in numerical scale of range [0, 10]. Specifically, we study their individual performance over two safety objectives: toxicity (crime, shocking, and disgust) and NSFW (evident, evasive, and subtle).
+                    </p>
+                    <div id="safety-table"></div>
+                </div>
+                <div class="tab-pane fade" id="quality-table-content" role="tabpanel" aria-labelledby="quality-table-tab">
+                    <p class="mt-2 px-2">
+                        The detailed evaluation result of all multimodal judges on <b>quality</b> perspective. The feedback is provided in numerical scale of range [0, 10]. Specifically, we study their individual performance over two quality objectives: distortion (including human face, human limb, and object), and blurry (including defocused and motion).
+                    </p>
+                    <div id="quality-table"></div>
+                </div>
+                <div class="tab-pane fade" id="bias-table-content" role="tabpanel" aria-labelledby="bias-table-tab">
+                    <p class="mt-2 px-2">
+                        The detailed evaluation result of all multimodal judges on <b>bias</b> perspective. The feedback are provided in different scales including numerical scales ([0-5], and [0-10]) and Likert scale: [Extremely Poor, Poor, Average, Good, Outstanding]. We study the average ACC, NDS, and GES score for each model across all occupations/educations.
+                    </p>
+                    <div id="bias-table"></div>
+                </div>
+            </div>
+            <br>
+            <h2 class="subtitle">
+                Please refer to our <a href="https://huggingface.co/spaces/MJ-Bench/MJ-Bench-Leaderboard">Huggingface Leaderboard</a> to add your model to the leaderboard.
+            </h2>
         </div>
-        <div class="tab-pane fade" id="bias-table-content" role="tabpanel"
-          aria-labelledby="bias-table-content">
-
-          <p class="mt-2 px-2">
-            The detailed evaluation result of all multimodal judges on <b>bias</b> perspective. The feedback are provided in different scales including numerical scales ([0-5], and [0-10]) and Likert scale: [Extremely Poor, Poor, Average, Good, Outstanding]. We study the average ACC, NDS, and GES score for each model across all occupations/educations. 
-          </p>
-          <div id="bias-table"></div>
-        </div>
-        </div>
-        <br>
-        <h2 class="subtitle">
-          Please refer to our <a href="https://huggingface.co/spaces/MJ-Bench/MJ-Bench-Leaderboard">Huggingface Leaderboard</a> to add your
-          model to the leaderboard.
-        </h2>
-      </div>
     </div>
-  </section>
+</section>
 
   <section class="section" id="Data">
     <div class="container is-max-desktop content">
