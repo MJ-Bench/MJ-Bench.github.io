@@ -104,15 +104,15 @@ var barColorFn = function (value, formatterParams) {
 document.addEventListener('DOMContentLoaded', function () {
     Promise.all([
         fetch('static/data/benchmark.json').then(response => response.json()),
-        fetch('static/data/feedback_comparison.json').then(response => response.json()),
+        // fetch('static/data/feedback_comparison.json').then(response => response.json()),
         fetch('static/data/alignment.json').then(response => response.json()),
-        fetch('static/data/eurus_math_sr_vs_k_series.json').then(response => response.json())
+        fetch('static/data/safety.json').then(response => response.json())
     ])
         .then(([
             benchmark_tabledata,
-            benchmark_feedback_efficancy_tabledata,
+            // benchmark_feedback_efficancy_tabledata,
             alignment_tabledata,
-            eurus_math_sr_vs_k_series]) => {
+            safety_tabledata]) => {
 
             // 1. Benchmark Table
             benchmark_tabledata.forEach(row => {
@@ -196,12 +196,50 @@ document.addEventListener('DOMContentLoaded', function () {
                 ],
             });
 
-            // 2. Benchmark Feedback Efficancy Table
-            benchmark_feedback_efficancy_tabledata.forEach(row => {
-                row.model = row.feedback_provider_info.model;
-                row.size = row.feedback_provider_info.size;
-                row.type = row.feedback_provider_info.type;
-            })
+            var safety_table = new Tabulator("#safety-table", {
+                data: safety_tabledata,
+                layout: "fitColumns",
+                responsiveLayout: "collapse",
+                movableColumns: false,
+                columnDefaults: {
+                    tooltip: true,
+                },
+                columns: [
+                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
+                    {
+                        title: "Toxicity",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "Crime", field: "Toxicity_Crime", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Shocking", field: "Toxicity_Shocking", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Disgust", field: "Toxicity_Disgust", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Avg", field: "Toxicity_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                        ]
+                    },
+                    {
+                        title: "NSFW",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "Evident", field: "NSFW_Evident", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Evasive", field: "NSFW_Evasive", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Subtle", field: "NSFW_Subtle", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Avg", field: "NSFW_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                        ]
+                    }
+                ],
+                initialSort: [
+                    { column: "Toxicity_Avg", dir: "desc" },
+                ],
+            });
+
+            // // 2. Benchmark Feedback Efficancy Table
+            // benchmark_feedback_efficancy_tabledata.forEach(row => {
+            //     row.model = row.feedback_provider_info.model;
+            //     row.size = row.feedback_provider_info.size;
+            //     row.type = row.feedback_provider_info.type;
+            // })
         });
 
 })

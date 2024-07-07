@@ -1,0 +1,233 @@
+[
+    {
+        "Model": "CLIP-v1",
+        "Toxicity_Crime": 89.7,
+        "Toxicity_Shocking": 96.6,
+        "Toxicity_Disgust": 97.6,
+        "Toxicity_Avg": 94.4,
+        "NSFW_Evident": 20.8,
+        "NSFW_Evasive": 4.5,
+        "NSFW_Subtle": 16.6,
+        "NSFW_Avg": 7.9
+    },
+    {
+        "Model": "BLIP-v2",
+        "Toxicity_Crime": 6.9,
+        "Toxicity_Shocking": 0.0,
+        "Toxicity_Disgust": 4.8,
+        "Toxicity_Avg": 4.5,
+        "NSFW_Evident": 58.4,
+        "NSFW_Evasive": 51.1,
+        "NSFW_Subtle": 35.7,
+        "NSFW_Avg": 49.1
+    },
+    {
+        "Model": "PickScore-v1",
+        "Toxicity_Crime": 89.7,
+        "Toxicity_Shocking": 82.8,
+        "Toxicity_Disgust": 88.1,
+        "Toxicity_Avg": 86.5,
+        "NSFW_Evident": 3.1,
+        "NSFW_Evasive": 48.2,
+        "NSFW_Subtle": 2.1,
+        "NSFW_Avg": 32.2
+    },
+    {
+        "Model": "HPS-v2.1",
+        "Toxicity_Crime": 89.7,
+        "Toxicity_Shocking": 86.2,
+        "Toxicity_Disgust": 85.7,
+        "Toxicity_Avg": 87.6,
+        "NSFW_Evident": 1.1,
+        "NSFW_Evasive": 30.8,
+        "NSFW_Subtle": 0.6,
+        "NSFW_Avg": 15.1
+    },
+    {
+        "Model": "ImageReward",
+        "Toxicity_Crime": 96.6,
+        "Toxicity_Shocking": 96.6,
+        "Toxicity_Disgust": 95.2,
+        "Toxicity_Avg": 95.5,
+        "NSFW_Evident": 31.1,
+        "NSFW_Evasive": 10.2,
+        "NSFW_Subtle": 27.4,
+        "NSFW_Avg": 18.2
+    },
+    {
+        "Model": "Aesthetics",
+        "Toxicity_Crime": 51.7,
+        "Toxicity_Shocking": 58.6,
+        "Toxicity_Disgust": 64.3,
+        "Toxicity_Avg": 57.3,
+        "NSFW_Evident": 14.6,
+        "NSFW_Evasive": 55.2,
+        "NSFW_Subtle": 14.2,
+        "NSFW_Avg": 37.5
+    },
+    {
+        "Model": "LLaVA-1.5-7b",
+        "Toxicity_Crime": 44.8,
+        "Toxicity_Shocking": 41.4,
+        "Toxicity_Disgust": 47.6,
+        "Toxicity_Avg": 43.8,
+        "NSFW_Evident": 35.7,
+        "NSFW_Evasive": 21.2,
+        "NSFW_Subtle": 17.6,
+        "NSFW_Avg": 26.3
+    },
+    {
+        "Model": "LLaVA-1.5-13b",
+        "Toxicity_Crime": 31.0,
+        "Toxicity_Shocking": 31.0,
+        "Toxicity_Disgust": 40.5,
+        "Toxicity_Avg": 33.7,
+        "NSFW_Evident": 40.8,
+        "NSFW_Evasive": 29.9,
+        "NSFW_Subtle": 33.6,
+        "NSFW_Avg": 34.7
+    },
+    {
+        "Model": "LLaVA-NeXT-mistral-7b",
+        "Toxicity_Crime": 20.7,
+        "Toxicity_Shocking": 24.1,
+        "Toxicity_Disgust": 19.0,
+        "Toxicity_Avg": 21.3,
+        "NSFW_Evident": 35.7,
+        "NSFW_Evasive": 14.1,
+        "NSFW_Subtle": 23.3,
+        "NSFW_Avg": 25.6
+    },
+    {
+        "Model": "LLaVA-NeXT-vicuna-13b",
+        "Toxicity_Crime": 44.8,
+        "Toxicity_Shocking": 37.9,
+        "Toxicity_Disgust": 52.4,
+        "Toxicity_Avg": 43.8,
+        "NSFW_Evident": 40.9,
+        "NSFW_Evasive": 25.1,
+        "NSFW_Subtle": 27.8,
+        "NSFW_Avg": 36.5
+    },
+    {
+        "Model": "Instructblip-7b",
+        "Toxicity_Crime": 31.0,
+        "Toxicity_Shocking": 34.5,
+        "Toxicity_Disgust": 40.5,
+        "Toxicity_Avg": 39.3,
+        "NSFW_Evident": 36.9,
+        "NSFW_Evasive": 24.2,
+        "NSFW_Subtle": 30.6,
+        "NSFW_Avg": 33.7
+    },
+    {
+        "Model": "MiniGPT4-v2",
+        "Toxicity_Crime": 41.4,
+        "Toxicity_Shocking": 62.1,
+        "Toxicity_Disgust": 42.9,
+        "Toxicity_Avg": 48.3,
+        "NSFW_Evident": 39.6,
+        "NSFW_Evasive": 21.4,
+        "NSFW_Subtle": 36.5,
+        "NSFW_Avg": 32.6
+    },
+    {
+        "Model": "Prometheus-Vision-7b",
+        "Toxicity_Crime": 0.0,
+        "Toxicity_Shocking": 0.0,
+        "Toxicity_Disgust": 0.0,
+        "Toxicity_Avg": 0.0,
+        "NSFW_Evident": 10.3,
+        "NSFW_Evasive": 6.8,
+        "NSFW_Subtle": 4.3,
+        "NSFW_Avg": 7.1
+    },
+    {
+        "Model": "Prometheus-Vision-13b",
+        "Toxicity_Crime": 0.0,
+        "Toxicity_Shocking": 0.0,
+        "Toxicity_Disgust": 0.0,
+        "Toxicity_Avg": 0.0,
+        "NSFW_Evident": 6.5,
+        "NSFW_Evasive": 4.1,
+        "NSFW_Subtle": 4.2,
+        "NSFW_Avg": 5.3
+    },
+    {
+        "Model": "Qwen-VL-Chat",
+        "Toxicity_Crime": 27.6,
+        "Toxicity_Shocking": 13.8,
+        "Toxicity_Disgust": 31.0,
+        "Toxicity_Avg": 24.7,
+        "NSFW_Evident": 18.9,
+        "NSFW_Evasive": 7.6,
+        "NSFW_Subtle": 6.3,
+        "NSFW_Avg": 11.6
+    },
+    {
+        "Model": "Internvl-chat-v1-5",
+        "Toxicity_Crime": 34.5,
+        "Toxicity_Shocking": 10.3,
+        "Toxicity_Disgust": 28.6,
+        "Toxicity_Avg": 25.8,
+        "NSFW_Evident": 23.3,
+        "NSFW_Evasive": 10.6,
+        "NSFW_Subtle": 7.2,
+        "NSFW_Avg": 16.2
+    },
+    {
+        "Model": "Idefics2-8b",
+        "Toxicity_Crime": 58.6,
+        "Toxicity_Shocking": 44.8,
+        "Toxicity_Disgust": 57.1,
+        "Toxicity_Avg": 52.8,
+        "NSFW_Evident": 32.9,
+        "NSFW_Evasive": 13.2,
+        "NSFW_Subtle": 19.5,
+        "NSFW_Avg": 20.2
+    },
+    {
+        "Model": "GPT-4-vision",
+        "Toxicity_Crime": 75.9,
+        "Toxicity_Shocking": 69.0,
+        "Toxicity_Disgust": 81.0,
+        "Toxicity_Avg": 76.4,
+        "NSFW_Evident": 69.5,
+        "NSFW_Evasive": 43.2,
+        "NSFW_Subtle": 32.5,
+        "NSFW_Avg": 44.1
+    },
+    {
+        "Model": "GPT-4o",
+        "Toxicity_Crime": 86.2,
+        "Toxicity_Shocking": 96.6,
+        "Toxicity_Disgust": 95.2,
+        "Toxicity_Avg": 92.1,
+        "NSFW_Evident": 72.3,
+        "NSFW_Evasive": 51.7,
+        "NSFW_Subtle": 38.9,
+        "NSFW_Avg": 54.3
+    },
+    {
+        "Model": "Gemini Ultra",
+        "Toxicity_Crime": 65.5,
+        "Toxicity_Shocking": 41.4,
+        "Toxicity_Disgust": 78.6,
+        "Toxicity_Avg": 64.0,
+        "NSFW_Evident": 31.6,
+        "NSFW_Evasive": 19.1,
+        "NSFW_Subtle": 10.3,
+        "NSFW_Avg": 22.7
+    },
+    {
+        "Model": "Claude 3 Opus",
+        "Toxicity_Crime": 62.1,
+        "Toxicity_Shocking": 37.9,
+        "Toxicity_Disgust": 50.0,
+        "Toxicity_Avg": 50.6,
+        "NSFW_Evident": 10.5,
+        "NSFW_Evasive": 6.2,
+        "NSFW_Subtle": 3.6,
+        "NSFW_Avg": 8.3
+    }
+]
