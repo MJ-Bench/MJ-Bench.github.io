@@ -349,6 +349,11 @@
               data-bs-target="#alignment-table-content" type="button" role="tab" aria-controls="alignment-table-tab"
               aria-selected="false">Alignment</button>
           </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="safety-table-tab" data-bs-toggle="tab"
+              data-bs-target="#safety-table-content" type="button" role="tab" aria-controls="safety-table-tab"
+              aria-selected="false">Safety</button>
+          </li>
         </ul>
 
         <div class="tab-content" id="myTabContent">
@@ -375,6 +380,18 @@
 
 
             <div id="alignment-table"></div>
+          </div>
+          <div class="tab-pane fade" id="safety-table-content" role="tabpanel"
+            aria-labelledby="safety-table-content">
+
+            <p class="mt-2 px-2">
+              The ChartMimic leaderboard with <b>Customized Mimic</b> task. We also include
+              the
+              code execution success rate (Exec. Rate) and model size (Params).
+            </p>
+
+
+            <div id="safety-table"></div>
           </div>
         </div>
         <br>
