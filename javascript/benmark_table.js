@@ -1,18 +1,19 @@
-// Formatter to generate charts
+
+//Formatter to generate charts
 var chartFormatter = function (cell, formatterParams, onRendered) {
     var content = document.createElement("span");
     var values = cell.getValue();
 
-    // Invert values if needed
+    //invert values if needed
     if (formatterParams.invert) {
         values = values.map(val => val * -1);
     }
 
-    // Add values to chart and style
+    //add values to chart and style
     content.classList.add(formatterParams.type);
-    content.innerHTML = values.join(",");
+    content.inneHrTML = values.join(",");
 
-    // Setup chart options
+    //setup chart options
     var options = {
         width: 50,
         // min: 0.0,
@@ -23,13 +24,14 @@ var chartFormatter = function (cell, formatterParams, onRendered) {
         options.fill = formatterParams.fill
     }
 
-    // Instantiate piety chart after the cell element has been added to the DOM
+    //instantiate piety chart after the cell element has been aded to the DOM
     onRendered(function () {
         peity(content, formatterParams.type, options);
     });
 
     return content;
 };
+
 
 var colorFormatter = function (cell, formatterParams) {
     var value = cell.getValue();
@@ -61,11 +63,12 @@ var colorFormatter = function (cell, formatterParams) {
     var green = Math.floor(startColor.g + (endColor.g - startColor.g) * normalizedValue);
     var blue = Math.floor(startColor.b + (endColor.b - startColor.b) * normalizedValue);
 
-    // Make sure the value is rounded to 1 decimal place
-    value = parseFloat(value).toFixed(1);
+    // make sure the value is rounded to 1 decimal place
+    value = parseFloat(value).toFixed(1)
 
     return "<span style='display: block; width: 100%; height: 100%; background-color: rgb(" + red + ", " + green + ", " + blue + ");'>" + value + "</span>";
 }
+
 
 var barColorFn = function (value, formatterParams) {
     var defaults = {
@@ -75,6 +78,7 @@ var barColorFn = function (value, formatterParams) {
     };
 
     // Override defaults with provided formatterParams values
+
     var low_range = (formatterParams && formatterParams.range[0]) || defaults.range[0];
     var high_range = (formatterParams && formatterParams.range[1]) || defaults.range[1];
     var low = (formatterParams && formatterParams.low) || defaults.low;
@@ -98,49 +102,194 @@ var barColorFn = function (value, formatterParams) {
 
 document.addEventListener('DOMContentLoaded', function () {
     Promise.all([
-        fetch('static/data/benchmark.json').then(response => response.json()),
-        // Add other fetch calls if necessary
+        fetch('website/data/benchmark.json').then(response => response.json()),
+        fetch('website/data/feedback_comparison.json').then(response => response.json()),
+        fetch('website/data/eurus_code_sr_vs_k_series.json').then(response => response.json()),
+        fetch('website/data/eurus_math_sr_vs_k_series.json').then(response => response.json())
     ])
-    .then(([my_benchmark_data]) => {
-        // Process your benchmark data as needed
-        my_benchmark_data.forEach(row => {
-            row.line = [
-                row['Alignment_Avg_w_tie'],
-                row['Alignment_Avg_w_o_tie'],
-                row['Safety_Avg_w_tie'],
-                row['Safety_Avg_w_o_tie'],
-                row['Artifact_Avg_w_tie'],
-                row['Artifact_Avg_w_o_tie'],
-                row['Bias_ACC'],
-                row['Bias_NDS'],
-                row['Bias_GES']
-            ];
+        .then(([
+            benchmark_tabledata,
+            benchmark_feedback_efficancy_tabledata,
+            eurus_code_sr_vs_k_series,
+            eurus_math_sr_vs_k_series]) => {
+
+            // 1. Benchmark Table
+            benchmark_tabledata.forEach(row => {
+                row.line = [row['1'], row['2'], row['3'], row['4'], row['5']]
+            })
+
+            var table = new Tabulator("#benchmark-table", {
+                data: benchmark_tabledata,
+                layout: "fitColumns",
+                responsiveLayout: "collapse",
+                movableColumns: false,
+                initialSort: [
+                    { column: "5", dir: "desc" },
+                ],
+                columnDefaults: {
+                    tooltip: true,
+                },
+                columns: [
+                    { title: "Model Family", field: "model", widthGrow: 1.5, minWidth: 180 },
+                    { title: "Size", field: "size", widthGrow: 0.9, minWidth: 60 },
+                    { title: "Type", field: "type", widthGrow: 0.9, minWidth: 60 },
+                    {//create column group
+                        title: "Tool-augmented Task-Solving Success Rate (within k turns)",
+                        columns: [
+                            { title: "k = 1", field: "1", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 2", field: "2", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 3", field: "3", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 4", field: "4", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 5", field: "5", sorter: "number", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "Slope", field: "Slope", sorter: "number", minWidth: 90 },
+                        ],
+                    },
+                    {
+                        title: "Ability to Leverage Language Feedback",
+                        columns: [
+                            {
+                                title: "k = 5 (+Feedback)", field: "Success Rate (5 turn) w\/ GPT-4 Feedback",
+                                hozAlign: "center", formatter: colorFormatter,
+                                widthGrow: 1.7,
+                                minWidth: 180,
+                            },
+                            {
+                                title: "&Delta;Feedback", field: "Delta Feedback",
+                                widthGrow: 1.5,
+                                minWidth: 80
+                            },
+                        ],
+                    },
+                ],
+            });
+
+
+            var eurus_code_table = new Tabulator("#eurus-code-table", {
+                data: eurus_code_sr_vs_k_series,
+                layout: "fitColumns",
+                responsiveLayout: "collapse",
+                movableColumns: false,
+                initialSort: [
+                    { column: "5", dir: "desc" },
+                ],
+                columnDefaults: {
+                    tooltip: true,
+                },
+                columns: [
+                    { title: "Model Family", field: "model", widthGrow: 2, minWidth: 180 },
+                    { title: "Size", field: "size", widthGrow: 0.9, minWidth: 60 },
+                    { title: "Type", field: "type", widthGrow: 0.9, minWidth: 60 },
+                    {//create column group
+                        title: "Tool-augmented Task-Solving Success Rate (within k turns, code subset)",
+                        columns: [
+                            { title: "k = 1", field: "1", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 2", field: "2", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 3", field: "3", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 4", field: "4", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 5", field: "5", sorter: "number", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "Slope", field: "Slope", sorter: "number", minWidth: 90 },
+                        ],
+                    },
+                ],
+            });
+
+            var eurus_math_table = new Tabulator("#eurus-math-table", {
+                data: eurus_math_sr_vs_k_series,
+                layout: "fitColumns",
+                responsiveLayout: "collapse",
+                movableColumns: false,
+                initialSort: [
+                    { column: "5", dir: "desc" },
+                ],
+                columnDefaults: {
+                    tooltip: true,
+                },
+                columns: [
+                    { title: "Model Family", field: "model", widthGrow: 2, minWidth: 180 },
+                    { title: "Size", field: "size", widthGrow: 0.9, minWidth: 60 },
+                    { title: "Type", field: "type", widthGrow: 0.9, minWidth: 60 },
+                    {//create column group
+                        title: "Tool-augmented Task-Solving Success Rate (within k turns, math subset)",
+                        columns: [
+                            { title: "k = 1", field: "1", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 2", field: "2", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 3", field: "3", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 4", field: "4", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "k = 5", field: "5", sorter: "number", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                            { title: "Slope", field: "Slope", sorter: "number", minWidth: 90 },
+                        ],
+                    },
+                ],
+            });
+
+            // 2. Benchmark Feedback Efficancy Table
+            benchmark_feedback_efficancy_tabledata.forEach(row => {
+                row.model = row.feedback_provider_info.model;
+                row.size = row.feedback_provider_info.size;
+                row.type = row.feedback_provider_info.type;
+            })
+
+            var feedback_efficacy_table = new Tabulator("#benchmark-feedback-efficancy-table", {
+                data: benchmark_feedback_efficancy_tabledata,
+                layout: "fitColumns",
+                // responsiveLayout: "collapse",
+                responsiveLayoutCollapseFormatter: function (data) {
+                    //data - an array of objects containing the column title and value for each cell
+                    var list = document.createElement("ul");
+
+                    data.forEach(function (col) {
+                        console.log(col);
+                        let item = document.createElement("li");
+                        item.innerHTML = "<strong>" + col.title + "</strong> - " + col.value;
+                        list.appendChild(item);
+                    });
+
+                    return Object.keys(data).length ? list : "";
+                },
+                movableColumns: false,
+                initialSort: [
+                    { column: "evaluated_LLM_feedback", dir: "desc" },
+                ],
+                columnDefaults: {
+                    tooltip: true,
+                },
+                columns: [
+                    {
+                        title: "Feedback Provider",
+                        columns: [
+                            { title: "Model Family", field: "model", widthGrow: 1, minWidth: 180 },
+                            { title: "Size", field: "size", minWidth: 90 },
+                            { title: "Type", field: "type", minWidth: 90 },
+                        ]
+                    },
+                    {
+                        title: "&Delta; Task Success Rate compared to GPT-3.5",
+                        field: "SR5_difference",
+                        formatter: "progress",
+                        sorter: "number",
+                        minWidth: 400,
+                        widthGrow: 3,
+                        formatterParams: {
+                            min: -50, max: 50,
+                            legend: true,
+                            color: barColorFn,
+                        },
+                    },
+                    {
+                        title: "&Delta; GPT-3.5 Success Rate with Provided Feedback",
+                        field: "evaluated_LLM_feedback",
+                        sorter: "number",
+                        formatter: "progress",
+                        minWidth: 400,
+                        widthGrow: 3,
+                        formatterParams: {
+                            min: -30, max: 30,
+                            legend: true,
+                            color: barColorFn
+                        },
+                    },
+                ]
+            });
         });
 
-        var table = new Tabulator("#benchmark-table", {
-            data: my_benchmark_data,
-            layout: "fitColumns",
-            responsiveLayout: "collapse",
-            movableColumns: false,
-            initialSort: [
-                { column: "Alignment_Avg_w_o_tie", dir: "desc" },
-            ],
-            columnDefaults: {
-                tooltip: true,
-            },
-            columns: [
-                { title: "Model", field: "Model", widthGrow: 1.5, minWidth: 180 },
-                { title: "Alignment Avg w/ Tie", field: "Alignment_Avg_w_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Alignment Avg w/o Tie", field: "Alignment_Avg_w_o_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Safety Avg w/ Tie", field: "Safety_Avg_w_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Safety Avg w/o Tie", field: "Safety_Avg_w_o_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Artifact Avg w/ Tie", field: "Artifact_Avg_w_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Artifact Avg w/o Tie", field: "Artifact_Avg_w_o_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Bias ACC", field: "Bias_ACC", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Bias NDS", field: "Bias_NDS", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Bias GES", field: "Bias_GES", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-            ],
-        });
-    })
-    .catch(error => console.error('Error loading benchmark data:', error));
-});
+})
