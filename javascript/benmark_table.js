@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // 1. Benchmark Table
             benchmark_tabledata.forEach(row => {
-                row.line = [row['1'], row['2'], row['3'], row['4'], row['5']]
+                row.line = [row['1'], row['2'], row['3'], row['4'], row['5'], row['6']]
             })
 
             var table = new Tabulator("#benchmark-table", {
