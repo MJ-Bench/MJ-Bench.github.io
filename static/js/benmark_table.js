@@ -128,14 +128,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     tooltip: true,
                 },
                 columns: [
-                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
+                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 150 },
                     {
                         title: "Alignment",
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "Avg w/ tie", field: "Alignment_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Avg w/o tie", field: "Alignment_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Avg w/ tie", field: "Alignment_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Alignment_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
                         ],
                     },
                     {
@@ -143,8 +143,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "Avg w/ tie", field: "Safety_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Avg w/o tie", field: "Safety_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Avg w/ tie", field: "Safety_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Safety_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
                         ],
                     },
                     {
@@ -152,8 +152,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "Avg w/ tie", field: "Artifact_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Avg w/o tie", field: "Artifact_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Avg w/ tie", field: "Artifact_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Artifact_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
                         ],
                     },
                     {
@@ -161,9 +161,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "ACC", field: "Bias_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "NDS", field: "Bias_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "GES", field: "Bias_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "ACC", field: "Bias_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "NDS", field: "Bias_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "GES", field: "Bias_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
                         ],
                     },
                 ],
