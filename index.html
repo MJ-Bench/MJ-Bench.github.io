@@ -275,32 +275,15 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              We introduce a new benchmark, <b>ChartMimic</b>, aimed at assessing <b>the visually-grounded code
-                generation
-                capabilities of large multimodal models (LMMs)</b>. ChartMimic utilizes information-intensive visual
-              charts
-              and textual instructions as inputs, requiring LMMs to generate the corresponding code for chart rendering.
+              While text-to-image models like DALLE-3 and Stable Diffusion are rapidly proliferating, they often encounter challenges such as hallucination, bias, and the production of unsafe, low-quality output. To effectively address these issues, it is crucial to align these models with desired behaviors based on feedback from a multimodal judge. Despite their significance, current multimodal judges frequently undergo inadequate evaluation of their capabilities and limitations, potentially leading to misalignment and unsafe fine-tuning outcomes.
             </p>
             <p>
-              ChartMimic includes <b>1,000 human-curated (figure, instruction, code) triplets</b>, which represent the
-              authentic chart use cases found in scientific papers across various domains (e.g., Physics, Computer
-              Science, Economics, etc). These charts span 18 regular types and 4 advanced types, diversifying into 191
-              subcategories.
+              To address this issue, we introduce MJ-Bench, a novel benchmark which incorporates a comprehensive preference dataset to evaluate multimodal judges in providing feedback for image generation models across four key perspectives: alignment, safety, image quality, and bias. Specifically, we evaluate a large variety of multimodal judges including smaller-sized CLIP-based scoring models, open-source VLMs (e.g. LLaVA family), and close-source VLMs (e.g. GPT-4o, Claude 3) on each decomposed subcategory of our preference dataset. 
             </p>
             <p>
-              Furthermore, we propose <b>multi-level evaluation metrics</b> to provide an automatic and thorough
-              assessment of
-              the output code and the rendered charts. Unlike existing code generation benchmarks, ChartMimic places
-              emphasis on evaluating LMMs' capacity to harmonize a blend of cognitive capabilities, encompassing
-              <b>visual
-                understanding, code generation, and cross-modal reasoning</b>.
-            </p>
-            <p>
-              The evaluation of 3 proprietary models and 11 open-weight models highlights the substantial challenges
-              posed by ChartMimic. Even the advanced GPT-4V, Claude-3-opus only achieve an average score of 73.2 and
-              53.7, respectively, indicating significant room for improvement.
-              We anticipate that ChartMimic will inspire the development of LMMs, advancing the pursuit of artificial
-              general intelligence.
+              Experiments reveal that close-source VLMs generally provide better feedback, with GPT-4o outperforming other judges in average. Compared with open-source VLMs, smaller-sized scoring models can provide better feedback regarding text-image alignment and image quality, while VLMs provide more accurate feedback regarding safety and generation bias due to their stronger reasoning capabilities.
+              Further studies in feedback scale reveal that VLM judges can generally provide more accurate and stable feedback in natural language (Likert-scale) than numerical scales.
+              Notably, human evaluations on end-to-end fine-tuned models using separate feedback from these multimodal judges provide similar conclusions, further confirming the effectiveness of \algname.
             </p>
           </div>
         </div>
