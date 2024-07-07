@@ -106,13 +106,15 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch('static/data/benchmark.json').then(response => response.json()),
         // fetch('static/data/feedback_comparison.json').then(response => response.json()),
         fetch('static/data/alignment.json').then(response => response.json()),
-        fetch('static/data/safety.json').then(response => response.json())
+        fetch('static/data/safety.json').then(response => response.json()),
+        fetch('static/data/quality.json').then(response => response.json())
     ])
         .then(([
             benchmark_tabledata,
             // benchmark_feedback_efficancy_tabledata,
             alignment_tabledata,
-            safety_tabledata]) => {
+            safety_tabledata,
+            quality_tabledata]) => {
 
             // 1. Benchmark Table
             benchmark_tabledata.forEach(row => {
@@ -197,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             var safety_table = new Tabulator("#safety-table", {
-                data: data,
+                data: safety_tabledata,
                 layout: "fitColumns",
                 responsiveLayout: "collapse",
                 movableColumns: false,
@@ -226,6 +228,44 @@ document.addEventListener('DOMContentLoaded', function () {
                             { title: "Evasive", field: "NSFW_Evasive", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
                             { title: "Subtle", field: "NSFW_Subtle", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
                             { title: "Avg", field: "NSFW_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                        ]
+                    },
+                    { title: "Avg", field: "Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                ],
+                initialSort: [
+                    { column: "Avg", dir: "desc" },
+                ],
+            });
+
+            var quality_table = new Tabulator("#quality-table", {
+                data: quality_tabledata,
+                layout: "fitColumns",
+                responsiveLayout: "collapse",
+                movableColumns: false,
+                columnDefaults: {
+                    tooltip: true,
+                },
+                columns: [
+                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
+                    {
+                        title: "Distortion",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "Human Face", field: "Distortion_Human_Face", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Human Limb", field: "Distortion_Human_Limb", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Object", field: "Distortion_Object", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Avg", field: "Distortion_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                        ]
+                    },
+                    {
+                        title: "Blurry",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "Defocused", field: "Blurry_Defocused", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Motion", field: "Blurry_Motion", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Avg", field: "Blurry_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
                         ]
                     },
                     { title: "Avg", field: "Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }

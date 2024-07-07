@@ -1,0 +1,233 @@
+[
+    {
+        "Model": "CLIP-v1",
+        "Distortion_Human_Face": 26.6,
+        "Distortion_Human_Limb": 17.2,
+        "Distortion_Object": 34.0,
+        "Distortion_Avg": 19.3,
+        "Blurry_Defocused": 50.6,
+        "Blurry_Motion": 63.7,
+        "Blurry_Avg": 56.7,
+        "Avg": 38.0
+    },
+    {
+        "Model": "BLIP-v2",
+        "Distortion_Human_Face": 3.6,
+        "Distortion_Human_Limb": 2.0,
+        "Distortion_Object": 1.1,
+        "Distortion_Avg": 1.9,
+        "Blurry_Defocused": 8.3,
+        "Blurry_Motion": 47.2,
+        "Blurry_Avg": 15.0,
+        "Avg": 8.45
+    },
+    {
+        "Model": "PickScore-v1",
+        "Distortion_Human_Face": 83.4,
+        "Distortion_Human_Limb": 68.2,
+        "Distortion_Object": 92.1,
+        "Distortion_Avg": 79.3,
+        "Blurry_Defocused": 80.6,
+        "Blurry_Motion": 93.4,
+        "Blurry_Avg": 86.6,
+        "Avg": 82.95
+    },
+    {
+        "Model": "HPS-v2.1",
+        "Distortion_Human_Face": 60.4,
+        "Distortion_Human_Limb": 37.1,
+        "Distortion_Object": 80.3,
+        "Distortion_Avg": 51.7,
+        "Blurry_Defocused": 85.7,
+        "Blurry_Motion": 94.6,
+        "Blurry_Avg": 88.6,
+        "Avg": 70.15
+    },
+    {
+        "Model": "ImageReward",
+        "Distortion_Human_Face": 31.4,
+        "Distortion_Human_Limb": 34.4,
+        "Distortion_Object": 40.2,
+        "Distortion_Avg": 33.3,
+        "Blurry_Defocused": 77.4,
+        "Blurry_Motion": 86.6,
+        "Blurry_Avg": 82.1,
+        "Avg": 57.7
+    },
+    {
+        "Model": "Aesthetics",
+        "Distortion_Human_Face": 78.7,
+        "Distortion_Human_Limb": 57.1,
+        "Distortion_Object": 51.3,
+        "Distortion_Avg": 52.1,
+        "Blurry_Defocused": 90.1,
+        "Blurry_Motion": 93.4,
+        "Blurry_Avg": 91.6,
+        "Avg": 71.85
+    },
+    {
+        "Model": "LLaVA-1.5-7b",
+        "Distortion_Human_Face": 13.6,
+        "Distortion_Human_Limb": 7.3,
+        "Distortion_Object": 9.2,
+        "Distortion_Avg": 10.2,
+        "Blurry_Defocused": 7.1,
+        "Blurry_Motion": 19.1,
+        "Blurry_Avg": 13.1,
+        "Avg": 11.65
+    },
+    {
+        "Model": "LLaVA-1.5-13b",
+        "Distortion_Human_Face": 20.1,
+        "Distortion_Human_Limb": 14.6,
+        "Distortion_Object": 13.3,
+        "Distortion_Avg": 16.4,
+        "Blurry_Defocused": 18.0,
+        "Blurry_Motion": 34.0,
+        "Blurry_Avg": 26.1,
+        "Avg": 21.25
+    },
+    {
+        "Model": "LLaVA-NeXT-7b",
+        "Distortion_Human_Face": 28.4,
+        "Distortion_Human_Limb": 27.8,
+        "Distortion_Object": 19.0,
+        "Distortion_Avg": 30.1,
+        "Blurry_Defocused": 41.7,
+        "Blurry_Motion": 66.1,
+        "Blurry_Avg": 53.9,
+        "Avg": 42.0
+    },
+    {
+        "Model": "LLaVA-NeXT-13b",
+        "Distortion_Human_Face": 18.9,
+        "Distortion_Human_Limb": 27.8,
+        "Distortion_Object": 12.0,
+        "Distortion_Avg": 20.5,
+        "Blurry_Defocused": 40.6,
+        "Blurry_Motion": 45.4,
+        "Blurry_Avg": 43.0,
+        "Avg": 31.75
+    },
+    {
+        "Model": "Instructblip-7b",
+        "Distortion_Human_Face": 12.4,
+        "Distortion_Human_Limb": 9.3,
+        "Distortion_Object": 21.0,
+        "Distortion_Avg": 13.3,
+        "Blurry_Defocused": 32.3,
+        "Blurry_Motion": 31.1,
+        "Blurry_Avg": 31.7,
+        "Avg": 22.5
+    },
+    {
+        "Model": "MiniGPT4-v2",
+        "Distortion_Human_Face": 39.6,
+        "Distortion_Human_Limb": 39.1,
+        "Distortion_Object": 42.0,
+        "Distortion_Avg": 40.0,
+        "Blurry_Defocused": 33.4,
+        "Blurry_Motion": 37.4,
+        "Blurry_Avg": 35.4,
+        "Avg": 37.7
+    },
+    {
+        "Model": "Prometheus-Vision-7b",
+        "Distortion_Human_Face": 16.6,
+        "Distortion_Human_Limb": 17.9,
+        "Distortion_Object": 14.1,
+        "Distortion_Avg": 16.4,
+        "Blurry_Defocused": 22.3,
+        "Blurry_Motion": 30.3,
+        "Blurry_Avg": 26.3,
+        "Avg": 21.35
+    },
+    {
+        "Model": "Prometheus-Vision-13b",
+        "Distortion_Human_Face": 7.1,
+        "Distortion_Human_Limb": 4.6,
+        "Distortion_Object": 7.2,
+        "Distortion_Avg": 6.2,
+        "Blurry_Defocused": 9.4,
+        "Blurry_Motion": 10.6,
+        "Blurry_Avg": 10.0,
+        "Avg": 8.1
+    },
+    {
+        "Model": "Qwen-VL-Chat",
+        "Distortion_Human_Face": 14.2,
+        "Distortion_Human_Limb": 15.9,
+        "Distortion_Object": 9.4,
+        "Distortion_Avg": 13.6,
+        "Blurry_Defocused": 0.9,
+        "Blurry_Motion": 2.1,
+        "Blurry_Avg": 1.4,
+        "Avg": 7.5
+    },
+    {
+        "Model": "Internvl-chat-v1-5",
+        "Distortion_Human_Face": 97.0,
+        "Distortion_Human_Limb": 95.4,
+        "Distortion_Object": 97.1,
+        "Distortion_Avg": 97.1,
+        "Blurry_Defocused": 89.7,
+        "Blurry_Motion": 89.7,
+        "Blurry_Avg": 89.7,
+        "Avg": 93.4
+    },
+    {
+        "Model": "Idefics2-8b",
+        "Distortion_Human_Face": 29.6,
+        "Distortion_Human_Limb": 25.8,
+        "Distortion_Object": 2.3,
+        "Distortion_Avg": 21.7,
+        "Blurry_Defocused": 70.6,
+        "Blurry_Motion": 46.9,
+        "Blurry_Avg": 58.7,
+        "Avg": 40.2
+    },
+    {
+        "Model": "GPT-4-vision",
+        "Distortion_Human_Face": 87.6,
+        "Distortion_Human_Limb": 57.6,
+        "Distortion_Object": 83.1,
+        "Distortion_Avg": 75.7,
+        "Blurry_Defocused": 98.8,
+        "Blurry_Motion": 99.3,
+        "Blurry_Avg": 99.2,
+        "Avg": 87.45
+    },
+    {
+        "Model": "GPT-4o",
+        "Distortion_Human_Face": 99.4,
+        "Distortion_Human_Limb": 78.2,
+        "Distortion_Object": 100.0,
+        "Distortion_Avg": 93.8,
+        "Blurry_Defocused": 100.0,
+        "Blurry_Motion": 100.0,
+        "Blurry_Avg": 100.0,
+        "Avg": 96.9
+    },
+    {
+        "Model": "Gemini Ultra",
+        "Distortion_Human_Face": 73.4,
+        "Distortion_Human_Limb": 32.5,
+        "Distortion_Object": 61.0,
+        "Distortion_Avg": 55.7,
+        "Blurry_Defocused": 86.5,
+        "Blurry_Motion": 97.3,
+        "Blurry_Avg": 93.9,
+        "Avg": 74.8
+    },
+    {
+        "Model": "Claude 3 Opus",
+        "Distortion_Human_Face": 26.6,
+        "Distortion_Human_Limb": 19.3,
+        "Distortion_Object": 10.7,
+        "Distortion_Avg": 17.6,
+        "Blurry_Defocused": 89.6,
+        "Blurry_Motion": 93.3,
+        "Blurry_Avg": 92.7,
+        "Avg": 55.15
+    }
+]
