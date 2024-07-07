@@ -207,16 +207,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     tooltip: true,
                 },
                 columns: [
-                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
+                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 150 },
                     {
                         title: "Toxicity",
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "Crime", field: "Toxicity_Crime", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Shocking", field: "Toxicity_Shocking", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Disgust", field: "Toxicity_Disgust", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Avg", field: "Toxicity_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                            { title: "Crime", field: "Toxicity_Crime", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Shocking", field: "Toxicity_Shocking", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Disgust", field: "Toxicity_Disgust", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Avg", field: "Toxicity_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
                         ]
                     },
                     {
@@ -224,13 +224,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "Evident", field: "NSFW_Evident", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Evasive", field: "NSFW_Evasive", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Subtle", field: "NSFW_Subtle", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Avg", field: "NSFW_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                            { title: "Evident", field: "NSFW_Evident", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Evasive", field: "NSFW_Evasive", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Subtle", field: "NSFW_Subtle", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Avg", field: "NSFW_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
                         ]
                     },
-                    { title: "Avg", field: "Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                    { title: "Avg", field: "Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
                 ],
                 initialSort: [
                     { column: "Avg", dir: "desc" },
