@@ -106,13 +106,15 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch('static/data/benchmark.json').then(response => response.json()),
         fetch('static/data/alignment.json').then(response => response.json()),
         fetch('static/data/safety.json').then(response => response.json()),
-        fetch('static/data/quality.json').then(response => response.json())
+        fetch('static/data/quality.json').then(response => response.json()),
+        fetch('static/data/bias.json').then(response => response.json()),
     ])
         .then(([
             benchmark_tabledata,
             alignment_tabledata,
             safety_tabledata,
-            quality_tabledata]) => {
+            quality_tabledata,
+            bias_tabledata]) => {
 
             // 1. Benchmark Table
             benchmark_tabledata.forEach(row => {
@@ -270,6 +272,53 @@ document.addEventListener('DOMContentLoaded', function () {
                 ],
                 initialSort: [
                     { column: "Avg", dir: "desc" },
+                ],
+            });
+
+            var bias_table = new Tabulator("#bias-table", {
+                data: bias_tabledata,
+                layout: "fitColumns",
+                responsiveLayout: "collapse",
+                movableColumns: false,
+                columnDefaults: {
+                    tooltip: true,
+                },
+                columns: [
+                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
+                    {
+                        title: "Numerical [0-5]",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "ACC", field: "Numerical_0_5_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "NDS", field: "Numerical_0_5_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "GES", field: "Numerical_0_5_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                        ]
+                    },
+                    {
+                        title: "Numerical [0-10]",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "ACC", field: "Numerical_0_10_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "NDS", field: "Numerical_0_10_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "GES", field: "Numerical_0_10_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                        ]
+                    },
+                    {
+                        title: "Likert scale",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "ACC", field: "Likert_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "NDS", field: "Likert_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "GES", field: "Likert_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                        ]
+                    },
+                    { title: "Overall", field: "Overall", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                ],
+                initialSort: [
+                    { column: "Overall", dir: "desc" },
                 ],
             });
 

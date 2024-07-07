@@ -337,6 +337,11 @@
               data-bs-target="#quality-table-content" type="button" role="tab" aria-controls="quality-table-tab"
               aria-selected="false">Quality</button>
           </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="bias-table-tab" data-bs-toggle="tab"
+              data-bs-target="#bias-table-content" type="button" role="tab" aria-controls="bias-table-tab"
+              aria-selected="false">Bias</button>
+          </li>
         </ul>
 
         <div class="tab-content" id="myTabContent">
@@ -344,10 +349,7 @@
             aria-labelledby="benchmark-table-content">
 
             <p class="mt-2 px-2">
-              The ChartMimic leaderboard with <b>Direct Mimic</b> task. We also include
-              the
-              code
-              execution success rate (Exec. Rate) and model size (Params).
+              Evaluation of three types of multimodal judges across four perspectives on <b>MJ-Bench</b> dataset. The average accuracy (%) with and without ties is provided for alignment, safety, and artifact. We evaluate preference biases over three metrics, i.e. accuracy (ACC), normalized dispersion score (NDS), Gini-based equality score (GES).
             </p>
 
             <div id="benchmark-table"></div>
@@ -356,42 +358,39 @@
             aria-labelledby="alignment-table-content">
 
             <p class="mt-2 px-2">
-              The ChartMimic leaderboard with <b>Customized Mimic</b> task. We also include
-              the
-              code execution success rate (Exec. Rate) and model size (Params).
+              The detailed evaluation result of all multimodal judges on <b>alignment</b> perspective. The feedback are provided in numerical scale of range [0, 10]. Specifically, we study their individual performance over five alignment objectives: object (existence), attribute, action, location, and count.
             </p>
-
-
             <div id="alignment-table"></div>
           </div>
           <div class="tab-pane fade" id="safety-table-content" role="tabpanel"
             aria-labelledby="safety-table-content">
 
             <p class="mt-2 px-2">
-              The ChartMimic leaderboard with <b>Customized Mimic</b> task. We also include
-              the
-              code execution success rate (Exec. Rate) and model size (Params).
+              The detailed evaluation result of all multimodal judges on <b>safety</b> perspective. The feedback are provided in numerical scale of range [0, 10]. Specifically, we study their individual performance over two safety objectives: toxicity (crime, shocking, and disgust) and NSFW (evident, evasive, and subtle).
             </p>
-
-
             <div id="safety-table"></div>
           </div>
           <div class="tab-pane fade" id="quality-table-content" role="tabpanel"
             aria-labelledby="quality-table-content">
 
             <p class="mt-2 px-2">
-              The ChartMimic leaderboard with <b>Customized Mimic</b> task. We also include
-              the
-              code execution success rate (Exec. Rate) and model size (Params).
+              The detailed evaluation result of all multimodal judges on <b>quality</b> perspective. The feedback is provided in numerical scale of range [0, 10]. Specifically, we study their individual performance over two quality objectives: distortion (including human face, human limb, and object), and blurry (including defocused and motion).
             </p>
-
-
             <div id="quality-table"></div>
           </div>
         </div>
+        <div class="tab-pane fade" id="bias-table-content" role="tabpanel"
+          aria-labelledby="bias-table-content">
+
+          <p class="mt-2 px-2">
+            The detailed evaluation result of all multimodal judges on <b>bias</b> perspective. The feedback are provided in different scales including numerical scales ([0-5], and [0-10]) and Likert scale: [Extremely Poor, Poor, Average, Good, Outstanding]. We study the average ACC, NDS, and GES score for each model across all occupations/educations. 
+          </p>
+          <div id="bias-table"></div>
+        </div>
+        </div>
         <br>
         <h2 class="subtitle">
-          Please refer to our <a href="https://github.com/ChartMimic/ChartMimic">GitHub repo</a> to add your
+          Please refer to our <a href="https://huggingface.co/spaces/MJ-Bench/MJ-Bench-Leaderboard">Huggingface Leaderboard</a> to add your
           model to the leaderboard.
         </h2>
       </div>
@@ -401,9 +400,9 @@
   <section class="section" id="Data">
     <div class="container is-max-desktop content">
       <h2 class="title">Data</h2>
-      <p>You can directly download our data from <a href="https://github.com/ChartMimic/ChartMimic">Huggingface
+      <p>You can directly download our data from <a href="https://huggingface.co/MJ-Bench">Huggingface
           datasets</a>. For guidance on how to access and utilize the data, please consult our instructions on <a
-          href="https://huggingface.co/datasets/ChartMimic/ChartMimic">Github</a>.</p>
+          href="https://github.com/MJ-Bench/MJ-Bench">Github</a>.</p>
     </div>
   </section>
 
