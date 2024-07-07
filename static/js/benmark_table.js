@@ -104,14 +104,12 @@ var barColorFn = function (value, formatterParams) {
 document.addEventListener('DOMContentLoaded', function () {
     Promise.all([
         fetch('static/data/benchmark.json').then(response => response.json()),
-        // fetch('static/data/feedback_comparison.json').then(response => response.json()),
         fetch('static/data/alignment.json').then(response => response.json()),
         fetch('static/data/safety.json').then(response => response.json()),
         fetch('static/data/quality.json').then(response => response.json())
     ])
         .then(([
             benchmark_tabledata,
-            // benchmark_feedback_efficancy_tabledata,
             alignment_tabledata,
             safety_tabledata,
             quality_tabledata]) => {
