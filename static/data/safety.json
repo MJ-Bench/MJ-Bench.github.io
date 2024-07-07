@@ -8,7 +8,8 @@
         "NSFW_Evident": 20.8,
         "NSFW_Evasive": 4.5,
         "NSFW_Subtle": 16.6,
-        "NSFW_Avg": 7.9
+        "NSFW_Avg": 7.9,
+        "Avg": 51.15
     },
     {
         "Model": "BLIP-v2",
@@ -19,7 +20,8 @@
         "NSFW_Evident": 58.4,
         "NSFW_Evasive": 51.1,
         "NSFW_Subtle": 35.7,
-        "NSFW_Avg": 49.1
+        "NSFW_Avg": 49.1,
+        "Avg": 26.8
     },
     {
         "Model": "PickScore-v1",
@@ -30,7 +32,8 @@
         "NSFW_Evident": 3.1,
         "NSFW_Evasive": 48.2,
         "NSFW_Subtle": 2.1,
-        "NSFW_Avg": 32.2
+        "NSFW_Avg": 32.2,
+        "Avg": 59.35
     },
     {
         "Model": "HPS-v2.1",
@@ -41,7 +44,8 @@
         "NSFW_Evident": 1.1,
         "NSFW_Evasive": 30.8,
         "NSFW_Subtle": 0.6,
-        "NSFW_Avg": 15.1
+        "NSFW_Avg": 15.1,
+        "Avg": 51.35
     },
     {
         "Model": "ImageReward",
@@ -52,7 +56,8 @@
         "NSFW_Evident": 31.1,
         "NSFW_Evasive": 10.2,
         "NSFW_Subtle": 27.4,
-        "NSFW_Avg": 18.2
+        "NSFW_Avg": 18.2,
+        "Avg": 56.85
     },
     {
         "Model": "Aesthetics",
@@ -63,7 +68,8 @@
         "NSFW_Evident": 14.6,
         "NSFW_Evasive": 55.2,
         "NSFW_Subtle": 14.2,
-        "NSFW_Avg": 37.5
+        "NSFW_Avg": 37.5,
+        "Avg": 47.4
     },
     {
         "Model": "LLaVA-1.5-7b",
@@ -74,7 +80,8 @@
         "NSFW_Evident": 35.7,
         "NSFW_Evasive": 21.2,
         "NSFW_Subtle": 17.6,
-        "NSFW_Avg": 26.3
+        "NSFW_Avg": 26.3,
+        "Avg": 35.05
     },
     {
         "Model": "LLaVA-1.5-13b",
@@ -85,7 +92,8 @@
         "NSFW_Evident": 40.8,
         "NSFW_Evasive": 29.9,
         "NSFW_Subtle": 33.6,
-        "NSFW_Avg": 34.7
+        "NSFW_Avg": 34.7,
+        "Avg": 34.2
     },
     {
         "Model": "LLaVA-NeXT-mistral-7b",
@@ -96,7 +104,8 @@
         "NSFW_Evident": 35.7,
         "NSFW_Evasive": 14.1,
         "NSFW_Subtle": 23.3,
-        "NSFW_Avg": 25.6
+        "NSFW_Avg": 25.6,
+        "Avg": 23.45
     },
     {
         "Model": "LLaVA-NeXT-vicuna-13b",
@@ -107,7 +116,8 @@
         "NSFW_Evident": 40.9,
         "NSFW_Evasive": 25.1,
         "NSFW_Subtle": 27.8,
-        "NSFW_Avg": 36.5
+        "NSFW_Avg": 36.5,
+        "Avg": 40.15
     },
     {
         "Model": "Instructblip-7b",
@@ -118,7 +128,8 @@
         "NSFW_Evident": 36.9,
         "NSFW_Evasive": 24.2,
         "NSFW_Subtle": 30.6,
-        "NSFW_Avg": 33.7
+        "NSFW_Avg": 33.7,
+        "Avg": 36.5
     },
     {
         "Model": "MiniGPT4-v2",
@@ -129,7 +140,8 @@
         "NSFW_Evident": 39.6,
         "NSFW_Evasive": 21.4,
         "NSFW_Subtle": 36.5,
-        "NSFW_Avg": 32.6
+        "NSFW_Avg": 32.6,
+        "Avg": 40.45
     },
     {
         "Model": "Prometheus-Vision-7b",
@@ -140,7 +152,8 @@
         "NSFW_Evident": 10.3,
         "NSFW_Evasive": 6.8,
         "NSFW_Subtle": 4.3,
-        "NSFW_Avg": 7.1
+        "NSFW_Avg": 7.1,
+        "Avg": 3.55
     },
     {
         "Model": "Prometheus-Vision-13b",
@@ -151,7 +164,8 @@
         "NSFW_Evident": 6.5,
         "NSFW_Evasive": 4.1,
         "NSFW_Subtle": 4.2,
-        "NSFW_Avg": 5.3
+        "NSFW_Avg": 5.3,
+        "Avg": 2.65
     },
     {
         "Model": "Qwen-VL-Chat",
@@ -162,7 +176,8 @@
         "NSFW_Evident": 18.9,
         "NSFW_Evasive": 7.6,
         "NSFW_Subtle": 6.3,
-        "NSFW_Avg": 11.6
+        "NSFW_Avg": 11.6,
+        "Avg": 18.15
     },
     {
         "Model": "Internvl-chat-v1-5",
@@ -173,7 +188,8 @@
         "NSFW_Evident": 23.3,
         "NSFW_Evasive": 10.6,
         "NSFW_Subtle": 7.2,
-        "NSFW_Avg": 16.2
+        "NSFW_Avg": 16.2,
+        "Avg": 21.0
     },
     {
         "Model": "Idefics2-8b",
@@ -184,7 +200,8 @@
         "NSFW_Evident": 32.9,
         "NSFW_Evasive": 13.2,
         "NSFW_Subtle": 19.5,
-        "NSFW_Avg": 20.2
+        "NSFW_Avg": 20.2,
+        "Avg": 36.5
     },
     {
         "Model": "GPT-4-vision",
@@ -195,7 +212,8 @@
         "NSFW_Evident": 69.5,
         "NSFW_Evasive": 43.2,
         "NSFW_Subtle": 32.5,
-        "NSFW_Avg": 44.1
+        "NSFW_Avg": 44.1,
+        "Avg": 60.25
     },
     {
         "Model": "GPT-4o",
@@ -206,7 +224,8 @@
         "NSFW_Evident": 72.3,
         "NSFW_Evasive": 51.7,
         "NSFW_Subtle": 38.9,
-        "NSFW_Avg": 54.3
+        "NSFW_Avg": 54.3,
+        "Avg": 73.2
     },
     {
         "Model": "Gemini Ultra",
@@ -217,7 +236,8 @@
         "NSFW_Evident": 31.6,
         "NSFW_Evasive": 19.1,
         "NSFW_Subtle": 10.3,
-        "NSFW_Avg": 22.7
+        "NSFW_Avg": 22.7,
+        "Avg": 43.35
     },
     {
         "Model": "Claude 3 Opus",
@@ -228,6 +248,7 @@
         "NSFW_Evident": 10.5,
         "NSFW_Evasive": 6.2,
         "NSFW_Subtle": 3.6,
-        "NSFW_Avg": 8.3
+        "NSFW_Avg": 8.3,
+        "Avg": 29.45
     }
 ]

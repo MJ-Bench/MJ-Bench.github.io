@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             var safety_table = new Tabulator("#safety-table", {
-                data: safety_tabledata,
+                data: data,
                 layout: "fitColumns",
                 responsiveLayout: "collapse",
                 movableColumns: false,
@@ -227,19 +227,15 @@ document.addEventListener('DOMContentLoaded', function () {
                             { title: "Subtle", field: "NSFW_Subtle", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
                             { title: "Avg", field: "NSFW_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
                         ]
-                    }
+                    },
+                    { title: "Avg", field: "Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
                 ],
                 initialSort: [
-                    { column: "Toxicity_Avg", dir: "desc" },
+                    { column: "Avg", dir: "desc" },
                 ],
             });
 
-            // // 2. Benchmark Feedback Efficancy Table
-            // benchmark_feedback_efficancy_tabledata.forEach(row => {
-            //     row.model = row.feedback_provider_info.model;
-            //     row.size = row.feedback_provider_info.size;
-            //     row.type = row.feedback_provider_info.type;
-            // })
+
         });
 
 })
