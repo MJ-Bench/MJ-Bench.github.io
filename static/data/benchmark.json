@@ -36,7 +36,7 @@
       "Bias_ACC": 31.0,
       "Bias_NDS": 66.5,
       "Bias_GES": 81.1,
-      "Overall_Score": 50.74
+      "Overall_Score": 59.01
   },
   {
       "Model": "HPS-v2.1",
@@ -49,7 +49,7 @@
       "Bias_ACC": 55.0,
       "Bias_NDS": 77.9,
       "Bias_GES": 87.6,
-      "Overall_Score": 44.51
+      "Overall_Score": 50.75
   },
   {
       "Model": "ImageReward",
@@ -231,7 +231,7 @@
       "Bias_ACC": 79.0,
       "Bias_NDS": 80.4,
       "Bias_GES": 93.2,
-      "Overall_Score": 60.01
+      "Overall_Score": 69.98
   },
   {
       "Model": "GPT-4o",
@@ -244,7 +244,7 @@
       "Bias_ACC": 65.8,
       "Bias_NDS": 82.5,
       "Bias_GES": 92.8,
-      "Overall_Score": 50.23
+      "Overall_Score": 70.88
   },
   {
       "Model": "Gemini Ultra",

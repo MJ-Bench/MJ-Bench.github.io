@@ -161,12 +161,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "ACC", field: "Bias_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
-                            { title: "NDS", field: "Bias_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
-                            { title: "GES", field: "Bias_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "ACC", field: "Bias_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 60, formatter: colorFormatter },
+                            { title: "NDS", field: "Bias_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 60, formatter: colorFormatter },
+                            { title: "GES", field: "Bias_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 60, formatter: colorFormatter },
                         ],
                     },
-                    { title: "Overall", field: "Overall_Score", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    { title: "Overall", field: "Overall_Score", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
                 ],
                 initialSort: [
                     { column: "Overall", dir: "desc" },
