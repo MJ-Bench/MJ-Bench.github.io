@@ -129,31 +129,45 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 columns: [
                     { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
-                    { title: "Params", field: "Params", headerHozAlign: "center", hozAlign: "right", widthGrow: 1.0, minWidth: 60 },
-                    { title: "Exec. Rate", field: "Exec_Rate", headerHozAlign: "center", hozAlign: "center", widthGrow: 1.3, minWidth: 60 },
                     {
-                        title: "Low-Level",
+                        title: "Alignment",
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "Text", field: "Text", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Layout", field: "Layout", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Type", field: "Type", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Color", field: "Color", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Avg.", field: "Avg", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Avg w/ tie", field: "Color", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Avg", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
                         ],
                     },
                     {
-                        title: "High-Level",
+                        title: "Safety",
                         headerHozAlign: "center",
+                        headerVAlign: "middle",
                         columns: [
-                            { title: "GPT-4V", field: "GPT-4V", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                        ]
+                            { title: "Avg w/ tie", field: "Color", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Avg", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                        ],
                     },
-                    { title: "Overall", field: "Overall", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    {
+                        title: "Quality",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "Avg w/ tie", field: "Color", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Avg", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                        ],
+                    },
+                    {
+                        title: "Bias",
+                        headerHozAlign: "center",
+                        headerVAlign: "middle",
+                        columns: [
+                            { title: "Avg w/ tie", field: "Color", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Avg", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                        ],
+                    },
                 ],
                 initialSort: [
-                    { column: "Overall", dir: "desc" },
+                    { column: "Alignment", dir: "desc" },
                 ],
             });
 
