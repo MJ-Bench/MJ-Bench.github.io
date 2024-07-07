@@ -1,19 +1,18 @@
-
-//Formatter to generate charts
+// Formatter to generate charts
 var chartFormatter = function (cell, formatterParams, onRendered) {
     var content = document.createElement("span");
     var values = cell.getValue();
 
-    //invert values if needed
+    // invert values if needed
     if (formatterParams.invert) {
         values = values.map(val => val * -1);
     }
 
-    //add values to chart and style
+    // add values to chart and style
     content.classList.add(formatterParams.type);
-    content.inneHrTML = values.join(",");
+    content.innerHTML = values.join(",");
 
-    //setup chart options
+    // setup chart options
     var options = {
         width: 50,
         // min: 0.0,
@@ -21,18 +20,16 @@ var chartFormatter = function (cell, formatterParams, onRendered) {
     }
 
     if (formatterParams.fill) {
-        options.fill = formatterParams.fill
+        options.fill = formatterParams.fill;
     }
 
-    //instantiate piety chart after the cell element has been aded to the DOM
+    // instantiate peity chart after the cell element has been added to the DOM
     onRendered(function () {
         peity(content, formatterParams.type, options);
     });
 
     return content;
 };
-
-
 
 var colorFormatter = function (cell, formatterParams) {
     var value = cell.getValue();
@@ -59,7 +56,7 @@ var colorFormatter = function (cell, formatterParams) {
     // Normalize the value between 0 and 1
     var normalizedValue = (value - min) / (max - min);
 
-    // Compute the color gradient 
+    // Compute the color gradient
     var red = Math.floor(startColor.r + (endColor.r - startColor.r) * normalizedValue);
     var green = Math.floor(startColor.g + (endColor.g - startColor.g) * normalizedValue);
     var blue = Math.floor(startColor.b + (endColor.b - startColor.b) * normalizedValue);
@@ -70,7 +67,6 @@ var colorFormatter = function (cell, formatterParams) {
     return "<span style='display: block; width: 100%; height: 100%; background-color: rgb(" + red + ", " + green + ", " + blue + ");'>" + value + "</span>";
 }
 
-
 var barColorFn = function (value, formatterParams) {
     var defaults = {
         range: [-50, 50],
@@ -79,7 +75,6 @@ var barColorFn = function (value, formatterParams) {
     };
 
     // Override defaults with provided formatterParams values
-
     var low_range = (formatterParams && formatterParams.range[0]) || defaults.range[0];
     var high_range = (formatterParams && formatterParams.range[1]) || defaults.range[1];
     var low = (formatterParams && formatterParams.low) || defaults.low;
@@ -103,24 +98,28 @@ var barColorFn = function (value, formatterParams) {
 
 document.addEventListener('DOMContentLoaded', function () {
     Promise.all([
-        fetch('static/data/benchmark.json').then(response => response.json()),
-        fetch('static/data/feedback_comparison.json').then(response => response.json()),
-        fetch('static/data/eurus_code_sr_vs_k_series.json').then(response => response.json()),
-        fetch('static/data/eurus_math_sr_vs_k_series.json').then(response => response.json())
+        fetch('website/data/benchmark.json').then(response => response.json())
+        // Add other fetch calls if necessary
     ])
-        .then(([
-            benchmark_tabledata,
-            benchmark_feedback_efficancy_tabledata,
-            eurus_code_sr_vs_k_series,
-            eurus_math_sr_vs_k_series]) => {
+        .then(([benchmark_data]) => {
 
             // 1. Benchmark Table
-            benchmark_tabledata.forEach(row => {
-                row.line = [row['1'], row['2'], row['3'], row['4'], row['5']]
-            })
+            benchmark_data.forEach(row => {
+                row.line = [
+                    row['alignment_avg_with_tie'],
+                    row['alignment_avg_without_tie'],
+                    row['safety_avg_with_tie'],
+                    row['safety_avg_without_tie'],
+                    row['artifact_avg_with_tie'],
+                    row['artifact_avg_without_tie'],
+                    row['bias_acc'],
+                    row['bias_nds'],
+                    row['bias_ges']
+                ];
+            });
 
             var table = new Tabulator("#benchmark-table", {
-                data: benchmark_tabledata,
+                data: benchmark_data,
                 layout: "fitColumns",
                 responsiveLayout: "collapse",
                 movableColumns: false,
@@ -128,80 +127,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     tooltip: true,
                 },
                 columns: [
-                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
-                    { title: "Params", field: "Params", headerHozAlign: "center", hozAlign: "right", widthGrow: 1.0, minWidth: 60 },
-                    { title: "Exec. Rate", field: "Exec_Rate", headerHozAlign: "center", hozAlign: "center", widthGrow: 1.3, minWidth: 60 },
-                    {
-                        title: "Low-Level",
-                        headerHozAlign: "center",
-                        headerVAlign: "middle",
-                        columns: [
-                            { title: "Text", field: "Text", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Layout", field: "Layout", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Type", field: "Type", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Color", field: "Color", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Avg.", field: "Avg", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                        ],
-                    },
-                    {
-                        title: "High-Level",
-                        headerHozAlign: "center",
-                        columns: [
-                            { title: "GPT-4V", field: "GPT-4V", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                        ]
-                    },
-                    { title: "Overall", field: "Overall", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    { title: "Model", field: "model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 1.5, minWidth: 180 },
+                    { title: "Alignment Avg w/ Tie", field: "alignment_avg_with_tie", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    { title: "Alignment Avg w/o Tie", field: "alignment_avg_without_tie", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    { title: "Safety Avg w/ Tie", field: "safety_avg_with_tie", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    { title: "Safety Avg w/o Tie", field: "safety_avg_without_tie", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    { title: "Artifact Avg w/ Tie", field: "artifact_avg_with_tie", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    { title: "Artifact Avg w/o Tie", field: "artifact_avg_without_tie", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    { title: "Bias ACC", field: "bias_acc", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    { title: "Bias NDS", field: "bias_nds", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    { title: "Bias GES", field: "bias_ges", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
                 ],
                 initialSort: [
-                    { column: "Overall", dir: "desc" },
+                    { column: "alignment_avg_without_tie", dir: "desc" },
                 ],
             });
-
-
-            var eurus_code_table = new Tabulator("#eurus-code-table", {
-                data: eurus_code_sr_vs_k_series,
-                layout: "fitColumns",
-                responsiveLayout: "collapse",
-                movableColumns: false,
-                columnDefaults: {
-                    tooltip: true,
-                },
-                columns: [
-                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
-                    { title: "Params", field: "Params", headerHozAlign: "center", hozAlign: "right", widthGrow: 1.0, minWidth: 60 },
-                    { title: "Exec. Rate", field: "Exec_Rate", headerHozAlign: "center", hozAlign: "center", widthGrow: 1.3, minWidth: 60 },
-                    {
-                        title: "Low-Level",
-                        headerHozAlign: "center",
-                        headerVAlign: "middle",
-                        columns: [
-                            { title: "Text", field: "Text", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Layout", field: "Layout", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Type", field: "Type", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Color", field: "Color", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Avg.", field: "Avg", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                        ],
-                    },
-                    {
-                        title: "High-Level",
-                        headerHozAlign: "center",
-                        columns: [
-                            { title: "GPT-4V", field: "GPT-4V", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                        ]
-                    },
-                    { title: "Overall", field: "Overall", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                ],
-                initialSort: [
-                    { column: "Overall", dir: "desc" },
-                ],
-            });
-
-            // 2. Benchmark Feedback Efficancy Table
-            benchmark_feedback_efficancy_tabledata.forEach(row => {
-                row.model = row.feedback_provider_info.model;
-                row.size = row.feedback_provider_info.size;
-                row.type = row.feedback_provider_info.type;
-            })
         });
-
-})
+});
