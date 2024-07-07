@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     { title: "Overall", field: "Overall_Score", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
                 ],
                 initialSort: [
-                    { column: "Overall", dir: "desc" },
+                    { column: "Overall_Score", dir: "desc" },
                 ],
             });
 
