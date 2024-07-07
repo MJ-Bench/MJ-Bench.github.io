@@ -161,8 +161,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "Avg w/ tie", field: "Color", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Avg w/o tie", field: "Avg", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "ACC", field: "Color", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "NDS", field: "Color", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "GES", field: "Avg", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
                         ],
                     },
                 ],
