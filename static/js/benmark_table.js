@@ -191,16 +191,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     tooltip: true,
                 },
                 columns: [
-                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
+                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 150 },
                     {
                         title: "Alignment",
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "FR", field: "Alignment_FR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "RR", field: "Alignment_RR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "AR", field: "Alignment_AR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "AV", field: "Alignment_AV", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
+                            { title: "FR", field: "Alignment_FR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "RR", field: "Alignment_RR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "AR", field: "Alignment_AR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "AV", field: "Alignment_AV", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter }
                         ]
                     },
                     {
@@ -208,10 +208,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "FR", field: "Safety_FR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "RR", field: "Safety_RR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "AR", field: "Safety_AR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "AV", field: "Safety_AV", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
+                            { title: "FR", field: "Safety_FR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "RR", field: "Safety_RR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "AR", field: "Safety_AR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "AV", field: "Safety_AV", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter }
                         ]
                     },
                     {
@@ -219,10 +219,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "FR", field: "Bias_FR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "RR", field: "Bias_RR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "AR", field: "Bias_AR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "AV", field: "Bias_AV", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
+                            { title: "FR", field: "Bias_FR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "RR", field: "Bias_RR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "AR", field: "Bias_AR", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
+                            { title: "AV", field: "Bias_AV", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter }
                         ]
                     }
                 ],
@@ -361,15 +361,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     tooltip: true,
                 },
                 columns: [
-                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
+                    { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 150 },
                     {
                         title: "Numerical [0-5]",
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "ACC", field: "Numerical_0_5_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "NDS", field: "Numerical_0_5_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "GES", field: "Numerical_0_5_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                            { title: "ACC", field: "Numerical_0_5_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter },
+                            { title: "NDS", field: "Numerical_0_5_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter },
+                            { title: "GES", field: "Numerical_0_5_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter }
                         ]
                     },
                     {
@@ -377,9 +377,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "ACC", field: "Numerical_0_10_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "NDS", field: "Numerical_0_10_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "GES", field: "Numerical_0_10_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                            { title: "ACC", field: "Numerical_0_10_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter },
+                            { title: "NDS", field: "Numerical_0_10_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter },
+                            { title: "GES", field: "Numerical_0_10_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter }
                         ]
                     },
                     {
@@ -387,12 +387,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "ACC", field: "Likert_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "NDS", field: "Likert_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "GES", field: "Likert_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                            { title: "ACC", field: "Likert_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter },
+                            { title: "NDS", field: "Likert_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter },
+                            { title: "GES", field: "Likert_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter }
                         ]
                     },
-                    { title: "Overall", field: "Overall", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
+                    { title: "Overall", field: "Overall", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
                 ],
                 initialSort: [
                     { column: "Overall", dir: "desc" },
