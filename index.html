@@ -1,108 +1,52 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-    content="A benchmark for evaluating LMM's cross-modal reasoning capability via chart-to-code generation.">
-  <meta name="keywords" content="Multimodal Code Generation, Large Multimodal Models">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="AgentPoison: Red-teaming LLM Agents via Memory or Knowledge Base Backdoor Poisoning">
+  <meta property="og:title" content="AgentPoison: Red-teaming LLM Agents via Memory or Knowledge Base Backdoor Poisoning"/>
+  <meta property="og:description" content="arxiv 2024"/>
+  <meta property="og:url" content="https://billchan226.github.io/AgentPoison.html"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="images/agentpoison/agentpoison_logo.jpg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="AgentPoison: Red-teaming LLM Agents via Memory or Knowledge Base Backdoor Poisoning">
+  <meta name="twitter:description" content="arxiv 2024">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="/images/agentpoison/agentpoison_logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="LLM Agent, RAG, Red-teaming LLMs, Trustworthy LLM Agent">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ChartMimic: Evaluating LMM’s Cross-Modal Reasoning Capability via Chart-to-Code Generation</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+  <title>AgentPoison: Red-teaming LLM Agents via Memory or Knowledge Base Backdoor Poisoning</title>
+  <link rel="icon" type="image/x-icon" href="/images/agentpoison/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
 
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script> -->
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bootstrap4.min.css" rel="stylesheet">
-  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-
-  <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bootstrap4.min.css" rel="stylesheet">
-  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
-
-  <script src="./static/js/benmark_table.js" type="module"></script>
+  <link rel="stylesheet" href="/static/css/bulma.min.css">
+  <link rel="stylesheet" href="/static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="/static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="/static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="/static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <!-- <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script> -->
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="/static/js/fontawesome.all.min.js"></script>
+  <script src="/static/js/bulma-carousel.min.js"></script>
+  <script src="/static/js/bulma-slider.min.js"></script>
+  <script src="/static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
 <body>
-
-  <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav> -->
 
 
   <section class="hero">
@@ -110,88 +54,64 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">ChartMimic: Evaluating LMM’s Cross-Modal Reasoning Capability via
-              Chart-to-Code Generation</h1>
+            <div style="display: flex; align-items: center; justify-content: center;">
+              <!-- Logo image -->
+              <img src="/images/agentpoison/agentpoison_logo.jpg" alt="Logo" style="margin-right: -20px; width: auto; height: 140px;"> <!-- Adjust the src, height, and margin-right as needed -->
+              <!-- Title -->
+              <h1 class="title is-1 publication-title" style="font-size: 45px;">AgentPoison: Red-teaming LLM Agents via Memory or Knowledge Base Backdoor Poisoning</h1>
+            </div>
             <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
               <span class="author-block">
-                <a href="./">Chufan Shi</a><sup>1*</sup>,</span>
-              <span class="author-block">
-                <a href="https://github.com/yc1999">Cheng Yang</a><sup>2*</sup>,</span>
-              <span class="author-block">
-                <a href="./">Yaxin Liu</a><sup>1*</sup>,</span>
-              <span class="author-block">
-                <a href="https://www.briancyan.site/">Bo Shui</a><sup>1*</sup>,</span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=iwR2MoQAAAAJ&hl=zh-CN">Junjie
-                  Wang</a><sup>3*</sup>,</span>
-              <span class="author-block">
-                <a href="./">Mohan Jing</a><sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="./">Linran Xu</a><sup>1</sup>,</span>
-              <br>
-              <span class="author-block">
-                <a href="https://zhuxinyu.top">Xinyu Zhu</a><sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?hl=zh-CN&user=thceJNUAAAAJ&view_op=list_works">Siheng
-                  Li</a><sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=TgQwykIAAAAJ&hl=zh-CN">Yuxiang
-                  Zhang</a><sup>3</sup>,</span>
-              <span class="author-block">
-                <a href="./">Gongye Liu</a><sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="./">Xiaomei Nie</a><sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="https://jcyk.github.io/">Deng Cai</a><sup>4</sup>,</span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=4gH3sxsAAAAJ&hl=zh-CN">Yujiu
-                  Yang</a><sup>1†</sup>,</span>
-            </div>
+                <a href="https://billchan226.github.io/" target="_blank">Zhaorun Chen</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://zhenxianglance.github.io/" target="_blank">Zhen Xiang</a><sup>2</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://xiaocw11.github.io/" target="_blank">Chaowei Xiao</a><sup>3</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://dawnsong.io/" target="_blank">Dawn Song</a><sup>4</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://aisecure.github.io/" target="_blank">Bo Li</a><sup>1,2</sup></span>
+                  </div>
 
-            <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>Tsinghua University,</span>
-              <span class="author-block"><sup>2</sup>The Chinese University of Hong Kong,</span>
-              <span class="author-block"><sup>3</sup>Waseda University,</span>
-              <span class="author-block"><sup>4</sup>Tencent AI Lab</span>
-            </div>
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>University of Chicago,</span>
+                    <span class="author-block"><sup>2</sup>University of Illinois, Urbana-Champaign,</span><br>
+                    <span class="author-block"><sup>3</sup>University of Wisconsin, Madison</span>
+                    <span class="author-block"><sup>4</sup>University of California, Berkeley,</span>
+                    <span class="eql-cntrb"><small><br><a
+                                href="mailto:billchandler0226@gmail.com">zhaorun@uchicago.edu</a>, <a
+                                href="mailto:zhuokai@uchicago.edu">bol@uchicago.edu</a></small></span>
+                  </div>
 
-            <div class="is-size-6 publication-authors">
-              <span class="author-block">*Equal contribution.</span>
-              <span class="author-block">†Corresponding author.</span>
-            </div>
 
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <!-- PDF Link. -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2406.09961" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2403.00425.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
                     </span>
-                    <span>Paper</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2406.09961" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
-                <!-- Video Link. -->
-                <!-- <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
-                <!-- Code Link. -->
-                <span class="link-block">
-                  <a href="https://github.com/ChartMimic/ChartMimic"
+
+                    <!-- Supplementary PDF link -->
+                    <!-- <span class="link-block">
+                      <a href="/static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/BillChan226/AgentPoison" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -199,103 +119,129 @@
                     <span>Code</span>
                   </a>
                 </span>
-                <!-- Dataset Link. -->
-                <span class="link-block">
-                  <a href="https://huggingface.co/datasets/ChartMimic/ChartMimic"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="far fa-images"></i>
-                    </span>
-                    <span>Data</span>
-                  </a>
-              </div>
 
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2403.00425" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video> -->
-        <img src="./static/images/overview.png" alt="Teaser image." />
-        <h2 class="subtitle has-text-centered">
-          <!-- <span class="dnerf">Nerfies</span> -->
-          The real-world example. LMMs assist scientists and researchers in understanding, interpreting and creating
-          charts during the reading and writing of academic papers.
-          These models serve as assistants that enhance the comprehension and presentation of data in scholarly
-          communications.
-        </h2>
-      </div>
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%"> -->
+        <!-- Your video here -->
+        <!-- <source src="/static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+      </h2>
     </div>
-  </section>
+  </div>
+</section> -->
+<!-- End teaser video -->
+
+<!-- News
+<section class="section hero is-light">
+  <div class="column is-four-fifths has-text-left">
+    <h3 class="title is-5">News 🔥</h3>
+    <div class="content">
+      <p>
+        HALC is accepted at ICML 2024! Stay tuned!
+      </p>
+    </div>
+  </div>
+</section> -->
 
 
-  <section class="section">
-    <div class="container is-max-desktop">
-      <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              We introduce a new benchmark, <b>ChartMimic</b>, aimed at assessing <b>the visually-grounded code
-                generation
-                capabilities of large multimodal models (LMMs)</b>. ChartMimic utilizes information-intensive visual
-              charts
-              and textual instructions as inputs, requiring LMMs to generate the corresponding code for chart rendering.
-            </p>
-            <p>
-              ChartMimic includes <b>1,000 human-curated (figure, instruction, code) triplets</b>, which represent the
-              authentic chart use cases found in scientific papers across various domains (e.g., Physics, Computer
-              Science, Economics, etc). These charts span 18 regular types and 4 advanced types, diversifying into 191
-              subcategories.
-            </p>
-            <p>
-              Furthermore, we propose <b>multi-level evaluation metrics</b> to provide an automatic and thorough
-              assessment of
-              the output code and the rendered charts. Unlike existing code generation benchmarks, ChartMimic places
-              emphasis on evaluating LMMs' capacity to harmonize a blend of cognitive capabilities, encompassing
-              <b>visual
-                understanding, code generation, and cross-modal reasoning</b>.
-            </p>
-            <p>
-              The evaluation of 3 proprietary models and 11 open-weight models highlights the substantial challenges
-              posed by ChartMimic. Even the advanced GPT-4V, Claude-3-opus only achieve an average score of 73.2 and
-              53.7, respectively, indicating significant room for improvement.
-              We anticipate that ChartMimic will inspire the development of LMMs, advancing the pursuit of artificial
-              general intelligence.
-            </p>
-          </div>
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            LLM agents have demonstrated remarkable performance across various applications, primarily due to their advanced capabilities in reasoning, utilizing external knowledge and tools, calling APIs, and executing actions to interact with environments. Current agents typically utilize a memory module or a retrieval-augmented generation (RAG) mechanism, retrieving past knowledge and instances with similar embeddings from knowledge bases to inform task planning and execution. However, the reliance on unverified knowledge bases raises significant concerns about their safety and trustworthiness. To uncover such vulnerabilities, we propose a novel red teaming approach AgentPoison, the first backdoor attack targeting generic and RAG-based LLM agents by poisoning their long-term memory or RAG knowledge base. In particular, we form the trigger generation process as a constrained optimization to optimize backdoor triggers by mapping the triggered instances to a unique embedding space, so as to ensure that whenever a user instruction contains the optimized backdoor trigger, the malicious demonstrations are retrieved from the poisoned memory or knowledge base with high probability. In the meantime, benign instructions without the trigger will still maintain normal performance. Unlike conventional backdoor attacks, AgentPoison requires no additional model training or fine-tuning, and the optimized backdoor trigger exhibits superior transferability, in-context coherence, and stealthiness. Extensive experiments demonstrate AgentPoison effectiveness in attacking three types of real-world LLM agents: RAG-based autonomous driving agent, knowledge-intensive QA agent, and healthcare EHRAgent. We inject the poisoning instances into the RAG knowledge base and long-term memories of these agents, respectively, demonstrating the generalization of AgentPoison. On each agent, AgentPoison achieves an average attack success rate of ≥ 80% with minimal impact on benign performance (≤ 1%) with a poison rate < 0.1%. Code is released <a href="https://github.com/BillChan226/AgentPoison" style="color:#36AE7C;">here</a>.
+          </p>
         </div>
       </div>
-      <!--/ Abstract. -->
-
-      <!--/ Framework. -->
-      <div class="hero-body">
-        <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video> -->
-        <img src="./static/images/framework.png" alt="Framework." />
-        <h2 class="subtitle has-text-centered">
-          <!-- <span class="dnerf">Nerfies</span> -->
-          The pipeline of ChartMimic. We provide 1,000 human-curated (figure, instruction, code) triplets. We use
-          ChartMimic to evaluate LMMs’ proficiency in the multimodal chart-to-code generation, resulting in both
-          high-level and low-level evaluation results.
-        </h2>
-      </div>
-      <!--/ Framework. -->
     </div>
-  </section>
+  </div>
+</section>
+<!-- End paper abstract -->
 
-  <section class="hero teaser">
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-4" style="margin-top: 20px;">Overview</h2>
+      <img id="tree" src="/images/agentpoison/method.png" alt="AgentPoison Overview" style="width: 100%; height: auto; display: block; margin: auto;">
+      <div class="content has-text-justified" style="font-size: 16px;">
+        <p>
+          An overview of the proposed AgentPoison framework. (Top) During the inference, the adversary poisons the LLM agents’ memory or RAG knowledge base with very few malicious demonstrations, which will be retrieved when the user instruction contains an optimized trigger. The retrieved demonstration with spurious, stealthy examples could effectively result in target adversarial action and catastrophic outcomes. (Bottom) Such a trigger is obtained by an iterative gradient-guided discrete optimization. Intuitively, the algorithm aims to gather queries with the trigger into a unique region in the embedding space while increasing their compactness. This will facilitate the retrieval rate of poisoned instances while preserving agent utility when the trigger is not present.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-4">Result</h2>
+      <h3 class="title is-4" style="font-size: 18px;">Setup</h3>
+      <div class="content has-text-justified" style="font-size: 16px;">
+        <p>
+          We compare agent poison with four baselines, <a href="https://arxiv.org/abs/2307.15043">GCG</a>, <a href="https://arxiv.org/abs/2310.04451">AutoDAN</a>, <a href="https://arxiv.org/abs/2310.19156">CPA</a>, and <a href="https://arxiv.org/abs/2401.12242">BadChain</a>, for three agents, <a href="https://arxiv.org/abs/2311.10813">Agent-Driver</a> for autonomous driving, <a href="https://arxiv.org/abs/2210.03629">ReAct</a> for knowledge-intensive QA, and <a href="https://arxiv.org/html/2401.07128v1">EHRAgent</a> for healthcare record management.
+          We use the dataset published in the original paper for Agent-Driver, <a href="https://allenai.org/data/strategyqa">StrategyQA</a> for ReAct, and XXX for EHRAgent.
+          We consider three evaluation metrics: 1) attack success rate for retrieval (<b>ASR-r</b>) -- the percentage of test instances where all the retrieved demonstrations from the database are poisoned,
+          2) attack success rate for the target action (<b>ASR-a</b>) -- the percentage of test instances where the agent generates the target action (e.g., "sudden stop") conditioned on successful retrieval of poisoned instances
+          3) nd-to-end target attack success rate (<b>ASR-t</b>) -- the percentage of test instances where the agent achieves the final adversarial impact on the environment (e.g. collision), which also depends on the agent itself.
+          4) benign accuracy (<b>ACC</b>) -- the percentage of test instances with correct action output without the trigger.
+        </p>
+      </div>
+      <h3 class="title is-4" style="font-size: 18px;">Main Result</h3>
+      <img id="tree" src="/images/agentpoison/main_result.png" alt="Main result" style="width: 80%; height: auto; display: block; margin: auto;">
+      <div class="content has-text-justified" style="font-size: 16px;">
+        <p>
+          Performance of AgentPoison compared with four baselines over ASR-r, ASR-b, ASR-t, ACC on four combinations of LLM agent backbones: GPT3.5 and LLaMA3-70b (Agent-Driver uses a fine-tuned LLaMA3-8b) and retrievers: end-to-end and contrastive-based. Specifically, we inject 20 poisoned instances for Agent-Driver, 4 for ReAct, and 2 for EHRAgent. For ASR, the maximum number in each column is in bold; and for ACC, the number within 1% to the non-attack case is in bold.
+        </p>
+      </div>
+      <ol style="PADDING-LEFT: 50px; text-align: justify">
+        <li>AgentPoison demonstrates superior attack success rate and benign utility.
+        <br/>
+        <li>AgentPoison has high transferability across embedders.
+        <br/>
+        <li>AgentPoison performs well even when we inject only one instance in the knowledge base with one token in the trigger.
+        <br/>
+        <li>XXX One sentence about loss
+        <br/>
+        <li>AgentPoison is robust to perturbations in the trigger sequence.
+        <br/>
+        <li>AgentPoison is highly evasive against potential defenses.
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
 
@@ -372,48 +318,161 @@
     </div>
   </section>
 
-  <section class="section" id="Data">
-    <div class="container is-max-desktop content">
-      <h2 class="title">Data</h2>
-      <p>You can directly download our data from <a href="https://github.com/ChartMimic/ChartMimic">Huggingface
-          datasets</a>. For guidance on how to access and utilize the data, please consult our instructions on <a
-          href="https://huggingface.co/datasets/ChartMimic/ChartMimic">Github</a>.</p>
-    </div>
-  </section>
 
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@article{
-      shi2024chartmimic,
-      title={ChartMimic: Evaluating LMM’s Cross-Modal Reasoning Capability via Chart-to-Code Generation},
-      author={Chufan Shi and Cheng Yang and Yaxin Liu and Bo Shui and Junjie Wang and Mohan Jing and Linran Xu and Xinyu Zhu and Siheng Li and Yuxiang Zhang and Gongye Liu and Xiaomei Nie and Deng Cai and Yujiu Yang},
-      year={2024},
-      journal={arXiv preprint arXiv:2406.09961},
-      }</code>
-  </pre>
-    </div>
-  </section>
 
-  <section class="section" id="Contact">
-    <div class="container is-max-desktop content">
-      <h2 class="title">Contact Us</h2>
-      <p>If you have any inquiries about ChartMimic, feel free to reach out to us at chartmimic@gmail.com or raise an
-        issue on Github.</p>
-    </div>
-  </section>
-
-  <footer class="footer">
+<!-- Image carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
     <div class="container">
-      <div class="columns is-centered">
-        <div class="content is-small">
-          This website templated is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a> and
-          <a href="https://xwang.dev/mint-bench/">MINT</a>.
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item"> -->
+        <!-- Your image here -->
+        <!-- <img src="/static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          First image description.
+        </h2>
+      </div>
+      <div class="item"> -->
+        <!-- Your image here -->
+        <!-- <img src="/static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Second image description.
+        </h2>
+      </div>
+      <div class="item"> -->
+        <!-- Your image here -->
+        <!-- <img src="/static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+         Third image description.
+       </h2>
+     </div>
+     <div class="item"> -->
+      <!-- Your image here -->
+      <!-- <img src="/static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Fourth image description.
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section> -->
+<!-- End image carousel -->
+
+
+
+
+<!-- Youtube video -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container"> -->
+      <!-- Paper video. -->
+      <!-- <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="publication-video"> -->
+            <!-- Youtube embed code here -->
+            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section> -->
+<!-- End youtube video -->
 
-</body>
 
-</html>
+<!-- Video carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%"> -->
+            <!-- Your video file here -->
+            <!-- <source src="/static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%"> -->
+            <!-- Your video file here -->
+            <!-- <source src="/static/videos/carousel2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\ -->
+            <!-- Your video file here -->
+            <!-- <source src="/static/videos/carousel3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End video carousel -->
+
+
+
+
+
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2> -->
+
+      <!-- <iframe  src="/static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{chen2024halc,
+        title={HALC: Object Hallucination Reduction via Adaptive Focal-Contrast Decoding},
+        author={Chen, Zhaorun and Zhao, Zhuokai and Luo, Hongyin and Yao, Huaxiu and Li, Bo and Zhou, Jiawei},
+        journal={arXiv preprint arXiv:2403.00425},
+        year={2024}
+      }</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>. This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
