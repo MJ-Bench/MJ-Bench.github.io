@@ -1,0 +1,191 @@
+[
+    {
+        "Model": "CLIP-v1",
+        "Object": 42.2,
+        "Attribute": 45.9,
+        "Action": 45.3,
+        "Location": 43.4,
+        "Count": 55.4,
+        "Avg": 44.0
+    },
+    {
+        "Model": "BLIP-v2",
+        "Object": 23.5,
+        "Attribute": 22.7,
+        "Action": 24.8,
+        "Location": 19.7,
+        "Count": 16.1,
+        "Avg": 21.5
+    },
+    {
+        "Model": "PickScore-v1",
+        "Object": 60.9,
+        "Attribute": 60.3,
+        "Action": 62.4,
+        "Location": 59.2,
+        "Count": 67.9,
+        "Avg": 60.9
+    },
+    {
+        "Model": "HPS-v2.1",
+        "Object": 49.4,
+        "Attribute": 53.7,
+        "Action": 49.6,
+        "Location": 51.3,
+        "Count": 57.1,
+        "Avg": 48.8
+    },
+    {
+        "Model": "ImageReward",
+        "Object": 50.6,
+        "Attribute": 52.8,
+        "Action": 47.1,
+        "Location": 57.9,
+        "Count": 53.6,
+        "Avg": 51.1
+    },
+    {
+        "Model": "Aesthetics",
+        "Object": 35.9,
+        "Attribute": 38.4,
+        "Action": 43.6,
+        "Location": 31.6,
+        "Count": 35.7,
+        "Avg": 34.8
+    },
+    {
+        "Model": "LLaVA-1.5-7b",
+        "Object": 20.7,
+        "Attribute": 25.2,
+        "Action": 23.1,
+        "Location": 18.2,
+        "Count": 17.9,
+        "Avg": 22.0
+    },
+    {
+        "Model": "LLaVA-1.5-13b",
+        "Object": 17.7,
+        "Attribute": 13.5,
+        "Action": 11.8,
+        "Location": 16.5,
+        "Count": 8.9,
+        "Avg": 10.3
+    },
+    {
+        "Model": "LLaVA-NeXT-mistral-7b",
+        "Object": 25.9,
+        "Attribute": 30.0,
+        "Action": 41.9,
+        "Location": 33.8,
+        "Count": 35.7,
+        "Avg": 31.3
+    },
+    {
+        "Model": "LLaVA-NeXT-vicuna-13b",
+        "Object": 25.9,
+        "Attribute": 27.4,
+        "Action": 31.6,
+        "Location": 38.9,
+        "Count": 32.1,
+        "Avg": 29.1
+    },
+    {
+        "Model": "Instructblip-7b",
+        "Object": 17.1,
+        "Attribute": 17.4,
+        "Action": 16.2,
+        "Location": 13.1,
+        "Count": 21.4,
+        "Avg": 17.1
+    },
+    {
+        "Model": "MiniGPT4-v2",
+        "Object": 37.5,
+        "Attribute": 30.9,
+        "Action": 30.8,
+        "Location": 32.5,
+        "Count": 39.3,
+        "Avg": 32.8
+    },
+    {
+        "Model": "Prometheus-Vision-7b",
+        "Object": 19.5,
+        "Attribute": 15.2,
+        "Action": 16.2,
+        "Location": 22.1,
+        "Count": 26.8,
+        "Avg": 18.8
+    },
+    {
+        "Model": "Prometheus-Vision-13b",
+        "Object": 14.3,
+        "Attribute": 10.9,
+        "Action": 9.4,
+        "Location": 11.7,
+        "Count": 16.1,
+        "Avg": 11.8
+    },
+    {
+        "Model": "Qwen-VL-Chat",
+        "Object": 30.7,
+        "Attribute": 29.1,
+        "Action": 35.9,
+        "Location": 29.9,
+        "Count": 32.1,
+        "Avg": 31.1
+    },
+    {
+        "Model": "Internvl-chat-v1-5",
+        "Object": 73.3,
+        "Attribute": 74.8,
+        "Action": 78.6,
+        "Location": 80.5,
+        "Count": 78.6,
+        "Avg": 75.8
+    },
+    {
+        "Model": "Idefics2-8b",
+        "Object": 35.5,
+        "Attribute": 31.7,
+        "Action": 30.8,
+        "Location": 29.9,
+        "Count": 30.4,
+        "Avg": 32.6
+    },
+    {
+        "Model": "GPT-4-vision",
+        "Object": 68.1,
+        "Attribute": 62.9,
+        "Action": 64.1,
+        "Location": 67.1,
+        "Count": 73.2,
+        "Avg": 66.1
+    },
+    {
+        "Model": "GPT-4o",
+        "Object": 62.2,
+        "Attribute": 57.2,
+        "Action": 64.1,
+        "Location": 63.2,
+        "Count": 67.9,
+        "Avg": 61.5
+    },
+    {
+        "Model": "Gemini Ultra",
+        "Object": 71.7,
+        "Attribute": 65.1,
+        "Action": 63.2,
+        "Location": 64.5,
+        "Count": 67.8,
+        "Avg": 67.2
+    },
+    {
+        "Model": "Claude 3 Opus",
+        "Object": 64.9,
+        "Attribute": 38.9,
+        "Action": 44.4,
+        "Location": 55.3,
+        "Count": 55.4,
+        "Avg": 57.1
+    }
+]

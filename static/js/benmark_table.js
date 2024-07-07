@@ -105,13 +105,13 @@ document.addEventListener('DOMContentLoaded', function () {
     Promise.all([
         fetch('static/data/benchmark.json').then(response => response.json()),
         fetch('static/data/feedback_comparison.json').then(response => response.json()),
-        fetch('static/data/eurus_code_sr_vs_k_series.json').then(response => response.json()),
+        fetch('static/data/alignment.json').then(response => response.json()),
         fetch('static/data/eurus_math_sr_vs_k_series.json').then(response => response.json())
     ])
         .then(([
             benchmark_tabledata,
             benchmark_feedback_efficancy_tabledata,
-            eurus_code_sr_vs_k_series,
+            alignment_tabledata,
             eurus_math_sr_vs_k_series]) => {
 
             // 1. Benchmark Table
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             var alignment_table = new Tabulator("#alignment-table", {
-                data: eurus_code_sr_vs_k_series,
+                data: alignment_tabledata,
                 layout: "fitColumns",
                 responsiveLayout: "collapse",
                 movableColumns: false,
@@ -184,31 +184,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 columns: [
                     { title: "Model", field: "Model", headerHozAlign: "center", headerVAlign: "middle", widthGrow: 2.0, minWidth: 180 },
-                    { title: "Params", field: "Params", headerHozAlign: "center", hozAlign: "right", widthGrow: 1.0, minWidth: 60 },
-                    { title: "Exec. Rate", field: "Exec_Rate", headerHozAlign: "center", hozAlign: "center", widthGrow: 1.3, minWidth: 60 },
-                    {
-                        title: "Low-Level",
-                        headerHozAlign: "center",
-                        headerVAlign: "middle",
-                        columns: [
-                            { title: "Text", field: "Text", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Layout", field: "Layout", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Type", field: "Type", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Color", field: "Color", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Avg.", field: "Avg", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                        ],
-                    },
-                    {
-                        title: "High-Level",
-                        headerHozAlign: "center",
-                        columns: [
-                            { title: "GPT-4V", field: "GPT-4V", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                        ]
-                    },
-                    { title: "Overall", field: "Overall", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                    { title: "Object", field: "Object", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                    { title: "Attribute", field: "Attribute", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                    { title: "Action", field: "Action", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                    { title: "Location", field: "Location", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                    { title: "Count", field: "Count", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                    { title: "Avg", field: "Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
                 ],
                 initialSort: [
-                    { column: "Overall", dir: "desc" },
+                    { column: "Avg", dir: "desc" },
                 ],
             });
 
