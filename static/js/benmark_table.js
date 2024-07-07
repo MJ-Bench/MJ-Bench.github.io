@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
 
-            var eurus_code_table = new Tabulator("#eurus-code-table", {
+            var eurus_code_table = new Tabulator("#alignment-table", {
                 data: eurus_code_sr_vs_k_series,
                 layout: "fitColumns",
                 responsiveLayout: "collapse",
