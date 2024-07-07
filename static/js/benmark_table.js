@@ -3,16 +3,16 @@ var chartFormatter = function (cell, formatterParams, onRendered) {
     var content = document.createElement("span");
     var values = cell.getValue();
 
-    // invert values if needed
+    // Invert values if needed
     if (formatterParams.invert) {
         values = values.map(val => val * -1);
     }
 
-    // add values to chart and style
+    // Add values to chart and style
     content.classList.add(formatterParams.type);
     content.innerHTML = values.join(",");
 
-    // setup chart options
+    // Setup chart options
     var options = {
         width: 50,
         // min: 0.0,
@@ -23,7 +23,7 @@ var chartFormatter = function (cell, formatterParams, onRendered) {
         options.fill = formatterParams.fill;
     }
 
-    // instantiate peity chart after the cell element has been added to the DOM
+    // Instantiate peity chart after the cell element has been added to the DOM
     onRendered(function () {
         peity(content, formatterParams.type, options);
     });
@@ -61,8 +61,8 @@ var colorFormatter = function (cell, formatterParams) {
     var green = Math.floor(startColor.g + (endColor.g - startColor.g) * normalizedValue);
     var blue = Math.floor(startColor.b + (endColor.b - startColor.b) * normalizedValue);
 
-    // make sure the value is rounded to 1 decimal place
-    value = parseFloat(value).toFixed(1)
+    // Make sure the value is rounded to 1 decimal place
+    value = parseFloat(value).toFixed(1);
 
     return "<span style='display: block; width: 100%; height: 100%; background-color: rgb(" + red + ", " + green + ", " + blue + ");'>" + value + "</span>";
 }
@@ -99,7 +99,6 @@ var barColorFn = function (value, formatterParams) {
 document.addEventListener('DOMContentLoaded', function () {
     Promise.all([
         fetch('website/data/benchmark.json').then(response => response.json())
-        // Add other fetch calls if necessary
     ])
         .then(([benchmark_data]) => {
 
