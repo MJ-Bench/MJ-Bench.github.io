@@ -1,19 +1,18 @@
-
-//Formatter to generate charts
+// Formatter to generate charts
 var chartFormatter = function (cell, formatterParams, onRendered) {
     var content = document.createElement("span");
     var values = cell.getValue();
 
-    //invert values if needed
+    // Invert values if needed
     if (formatterParams.invert) {
         values = values.map(val => val * -1);
     }
 
-    //add values to chart and style
+    // Add values to chart and style
     content.classList.add(formatterParams.type);
-    content.inneHrTML = values.join(",");
+    content.innerHTML = values.join(",");
 
-    //setup chart options
+    // Setup chart options
     var options = {
         width: 50,
         // min: 0.0,
@@ -24,14 +23,13 @@ var chartFormatter = function (cell, formatterParams, onRendered) {
         options.fill = formatterParams.fill
     }
 
-    //instantiate piety chart after the cell element has been aded to the DOM
+    // Instantiate piety chart after the cell element has been added to the DOM
     onRendered(function () {
         peity(content, formatterParams.type, options);
     });
 
     return content;
 };
-
 
 var colorFormatter = function (cell, formatterParams) {
     var value = cell.getValue();
@@ -63,12 +61,11 @@ var colorFormatter = function (cell, formatterParams) {
     var green = Math.floor(startColor.g + (endColor.g - startColor.g) * normalizedValue);
     var blue = Math.floor(startColor.b + (endColor.b - startColor.b) * normalizedValue);
 
-    // make sure the value is rounded to 1 decimal place
-    value = parseFloat(value).toFixed(1)
+    // Make sure the value is rounded to 1 decimal place
+    value = parseFloat(value).toFixed(1);
 
     return "<span style='display: block; width: 100%; height: 100%; background-color: rgb(" + red + ", " + green + ", " + blue + ");'>" + value + "</span>";
 }
-
 
 var barColorFn = function (value, formatterParams) {
     var defaults = {
@@ -78,7 +75,6 @@ var barColorFn = function (value, formatterParams) {
     };
 
     // Override defaults with provided formatterParams values
-
     var low_range = (formatterParams && formatterParams.range[0]) || defaults.range[0];
     var high_range = (formatterParams && formatterParams.range[1]) || defaults.range[1];
     var low = (formatterParams && formatterParams.low) || defaults.low;
@@ -102,22 +98,22 @@ var barColorFn = function (value, formatterParams) {
 
 document.addEventListener('DOMContentLoaded', function () {
     Promise.all([
-        fetch('website/data/my_benchmark.json').then(response => response.json()),
+        fetch('static/data/benchmark.json').then(response => response.json()),
         // Add other fetch calls if necessary
     ])
     .then(([my_benchmark_data]) => {
         // Process your benchmark data as needed
         my_benchmark_data.forEach(row => {
             row.line = [
-                row['alignment_avg_with_tie'],
-                row['alignment_avg_without_tie'],
-                row['safety_avg_with_tie'],
-                row['safety_avg_without_tie'],
-                row['artifact_avg_with_tie'],
-                row['artifact_avg_without_tie'],
-                row['bias_acc'],
-                row['bias_nds'],
-                row['bias_ges']
+                row['Alignment_Avg_w_tie'],
+                row['Alignment_Avg_w_o_tie'],
+                row['Safety_Avg_w_tie'],
+                row['Safety_Avg_w_o_tie'],
+                row['Artifact_Avg_w_tie'],
+                row['Artifact_Avg_w_o_tie'],
+                row['Bias_ACC'],
+                row['Bias_NDS'],
+                row['Bias_GES']
             ];
         });
 
@@ -127,23 +123,24 @@ document.addEventListener('DOMContentLoaded', function () {
             responsiveLayout: "collapse",
             movableColumns: false,
             initialSort: [
-                { column: "alignment_avg_without_tie", dir: "desc" },
+                { column: "Alignment_Avg_w_o_tie", dir: "desc" },
             ],
             columnDefaults: {
                 tooltip: true,
             },
             columns: [
-                { title: "Model", field: "model", widthGrow: 1.5, minWidth: 180 },
-                { title: "Alignment Avg w/ Tie", field: "alignment_avg_with_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Alignment Avg w/o Tie", field: "alignment_avg_without_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Safety Avg w/ Tie", field: "safety_avg_with_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Safety Avg w/o Tie", field: "safety_avg_without_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Artifact Avg w/ Tie", field: "artifact_avg_with_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Artifact Avg w/o Tie", field: "artifact_avg_without_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Bias ACC", field: "bias_acc", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Bias NDS", field: "bias_nds", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
-                { title: "Bias GES", field: "bias_ges", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                { title: "Model", field: "Model", widthGrow: 1.5, minWidth: 180 },
+                { title: "Alignment Avg w/ Tie", field: "Alignment_Avg_w_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                { title: "Alignment Avg w/o Tie", field: "Alignment_Avg_w_o_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                { title: "Safety Avg w/ Tie", field: "Safety_Avg_w_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                { title: "Safety Avg w/o Tie", field: "Safety_Avg_w_o_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                { title: "Artifact Avg w/ Tie", field: "Artifact_Avg_w_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                { title: "Artifact Avg w/o Tie", field: "Artifact_Avg_w_o_tie", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                { title: "Bias ACC", field: "Bias_ACC", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                { title: "Bias NDS", field: "Bias_NDS", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
+                { title: "Bias GES", field: "Bias_GES", hozAlign: "center", formatter: colorFormatter, minWidth: 90 },
             ],
         });
-    });
+    })
+    .catch(error => console.error('Error loading benchmark data:', error));
 });
