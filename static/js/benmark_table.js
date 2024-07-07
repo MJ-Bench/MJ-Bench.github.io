@@ -166,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             { title: "GES", field: "Bias_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
                         ],
                     },
+                    { title: "Overall", field: "Overall_Score", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
                 ],
                 initialSort: [
                     { column: "Alignment", dir: "desc" },
