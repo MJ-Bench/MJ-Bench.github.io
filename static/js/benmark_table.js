@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerVAlign: "middle",
                         columns: [
                             { title: "Crime", field: "Toxicity_Crime", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Shocking", field: "Toxicity_Shocking", headerHozAlign: "center", hozAlign: "center", minWidth: 105, formatter: colorFormatter },
+                            { title: "Shocking", field: "Toxicity_Shocking", headerHozAlign: "center", hozAlign: "center", minWidth: 115, formatter: colorFormatter },
                             { title: "Disgust", field: "Toxicity_Disgust", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
                             { title: "Avg", field: "Toxicity_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
                         ]
