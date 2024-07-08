@@ -156,7 +156,7 @@
       "Overall_Score": 32.86
   },
   {
-      "Model": "Prometheus-Vision-7b",
+      "Model": "PrometheusV-7b",
       "Alignment_Avg_w_tie": 18.8,
       "Alignment_Avg_w_o_tie": 63.9,
       "Safety_Avg_w_tie": 7.1,
@@ -169,7 +169,7 @@
       "Overall_Score": 23.88
   },
   {
-      "Model": "Prometheus-Vision-13b",
+      "Model": "PrometheusV-13b",
       "Alignment_Avg_w_tie": 11.8,
       "Alignment_Avg_w_o_tie": 64.3,
       "Safety_Avg_w_tie": 3.6,
