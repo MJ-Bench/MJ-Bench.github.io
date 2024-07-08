@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerVAlign: "middle",
                         columns: [
                             { title: "Avg w/ tie", field: "Alignment_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Avg w/o tie", field: "Alignment_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 135, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Alignment_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 130, formatter: colorFormatter },
                         ],
                     },
                     {
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerVAlign: "middle",
                         columns: [
                             { title: "Avg w/ tie", field: "Safety_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Avg w/o tie", field: "Safety_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 135, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Safety_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 130, formatter: colorFormatter },
                         ],
                     },
                     {
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerVAlign: "middle",
                         columns: [
                             { title: "Avg w/ tie", field: "Artifact_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Avg w/o tie", field: "Artifact_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 135, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Artifact_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 130, formatter: colorFormatter },
                         ],
                     },
                     {
