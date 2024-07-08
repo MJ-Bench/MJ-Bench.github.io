@@ -165,8 +165,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "ACC", field: "Bias_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter },
-                            { title: "NDS", field: "Bias_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter },
+                            { title: "ACC", field: "Bias_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "NDS", field: "Bias_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
                             { title: "GES", field: "Bias_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 80, formatter: colorFormatter },
                         ],
                     },
