@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerVAlign: "middle",
                         columns: [
                             { title: "Avg w/ tie", field: "Alignment_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Avg w/o tie", field: "Alignment_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 130, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Alignment_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 135, formatter: colorFormatter },
                         ],
                     },
                     {
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerVAlign: "middle",
                         columns: [
                             { title: "Avg w/ tie", field: "Safety_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Avg w/o tie", field: "Safety_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 130, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Safety_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 135, formatter: colorFormatter },
                         ],
                     },
                     {
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerVAlign: "middle",
                         columns: [
                             { title: "Avg w/ tie", field: "Artifact_Avg_w_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Avg w/o tie", field: "Artifact_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 130, formatter: colorFormatter },
+                            { title: "Avg w/o tie", field: "Artifact_Avg_w_o_tie", headerHozAlign: "center", hozAlign: "center", minWidth: 135, formatter: colorFormatter },
                         ],
                     },
                     {
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "ACC", field: "Bias_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 60, formatter: colorFormatter },
+                            { title: "ACC", field: "Bias_ACC", headerHozAlign: "center", hozAlign: "center", minWidth: 70, formatter: colorFormatter },
                             { title: "NDS", field: "Bias_NDS", headerHozAlign: "center", hozAlign: "center", minWidth: 60, formatter: colorFormatter },
                             { title: "GES", field: "Bias_GES", headerHozAlign: "center", hozAlign: "center", minWidth: 60, formatter: colorFormatter },
                         ],
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerVAlign: "middle",
                         columns: [
                             { title: "Crime", field: "Toxicity_Crime", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
-                            { title: "Shocking", field: "Toxicity_Shocking", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
+                            { title: "Shocking", field: "Toxicity_Shocking", headerHozAlign: "center", hozAlign: "center", minWidth: 105, formatter: colorFormatter },
                             { title: "Disgust", field: "Toxicity_Disgust", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter },
                             { title: "Avg", field: "Toxicity_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 90, formatter: colorFormatter }
                         ]
@@ -324,8 +324,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "Human Face", field: "Distortion_Human_Face", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
-                            { title: "Human Limb", field: "Distortion_Human_Limb", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Human Face", field: "Distortion_Human_Face", headerHozAlign: "center", hozAlign: "center", minWidth: 150, formatter: colorFormatter },
+                            { title: "Human Limb", field: "Distortion_Human_Limb", headerHozAlign: "center", hozAlign: "center", minWidth: 150, formatter: colorFormatter },
                             { title: "Object", field: "Distortion_Object", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
                             { title: "Avg", field: "Distortion_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
                         ]
