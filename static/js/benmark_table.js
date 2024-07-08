@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         headerHozAlign: "center",
                         headerVAlign: "middle",
                         columns: [
-                            { title: "Defocused", field: "Blurry_Defocused", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
+                            { title: "Defocused", field: "Blurry_Defocused", headerHozAlign: "center", hozAlign: "center", minWidth: 130, formatter: colorFormatter },
                             { title: "Motion", field: "Blurry_Motion", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter },
                             { title: "Avg", field: "Blurry_Avg", sorter: "number", headerHozAlign: "center", hozAlign: "center", minWidth: 120, formatter: colorFormatter }
                         ]
