@@ -4,13 +4,15 @@ This is the repository that contains source code for the [ChartMimic website](ht
 
 If you find ChartMimic useful for your work please cite:
 ```
-@article{
-      shi2024chartmimic,
-      title={ChartMimic: Evaluating LMM’s Cross-Modal Reasoning Capability via Chart-to-Code Generation},
-      author={Chufan Shi and Cheng Yang and Yaxin Liu and Bo Shui and Junjie Wang and Mohan Jing and Linran Xu and Xinyu Zhu and Siheng Li and Yuxiang Zhang and Gongye Liu and Xiaomei Nie and Deng Cai and Yujiu Yang},
+@misc{chen2024mjbenchmultimodalrewardmodel,
+      title={MJ-Bench: Is Your Multimodal Reward Model Really a Good Judge for Text-to-Image Generation?}, 
+      author={Zhaorun Chen and Yichao Du and Zichen Wen and Yiyang Zhou and Chenhang Cui and Zhenzhen Weng and Haoqin Tu and Chaoqi Wang and Zhengwei Tong and Qinglan Huang and Canyu Chen and Qinghao Ye and Zhihong Zhu and Yuqing Zhang and Jiawei Zhou and Zhuokai Zhao and Rafael Rafailov and Chelsea Finn and Huaxiu Yao},
       year={2024},
-      journal={arXiv preprint arXiv:2406.09961},
-      }
+      eprint={2407.04842},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2407.04842},
+    }
 ```
 
 # Website License
